@@ -9,41 +9,60 @@
   <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          colors: {
-            maroon: {
-              950: '#140306',
-              900: '#2b060f',
-              800: '#881337',
-              700: '#9f1239',
-              600: '#be123c',
-              500: '#e11d48',
-            }
-          }
-        }
-      }
-    }
-  </script>
-
+  
   <style>
+    :root {
+      --ocean-950: #020b14;
+      --ocean-900: #041527;
+      --ocean-800: #062340;
+      --cyan-500: #0ea5e9;
+      --cyan-400: #38bdf8;
+      --cyan-300: #7dd3fc;
+      --bio-500: #22d3ee;
+      --bio-400: #67e8f9;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #050507;
-      color: #0f172a;
+      background: linear-gradient(180deg, var(--ocean-950) 0%, var(--ocean-900) 50%, var(--ocean-800) 100%);
+      color: #f8fafc;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* Screen UI Styles (Glassmorphism & Marine Glow) */
+    .screen-only-bg {
+      background: rgba(4, 21, 39, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--bio-500);
+      border-bottom: 1px solid rgba(34, 211, 238, 0.3);
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+      margin-top: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+    }
+
+    .text-glow {
+      text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
     }
 
     /* ATS Print Specific Stylesheet */
@@ -53,91 +72,93 @@
         size: A4 portrait;
       }
       body {
-        background-color: #ffffff !important;
+        background: #ffffff !important;
         color: #000000 !important;
         font-size: 11pt;
       }
       .no-print {
         display: none !important;
       }
-      .resume-container {
+      .screen-only-bg {
+        background: transparent !important;
         box-shadow: none !important;
         border: none !important;
+        backdrop-filter: none !important;
+        border-radius: 0 !important;
         padding: 0 !important;
         max-width: 100% !important;
         margin: 0 !important;
       }
+      .section-title {
+        color: #0f172a !important; /* Dark Slate for print */
+        border-bottom: 1.5px solid #cbd5e1 !important;
+        text-shadow: none !important;
+      }
+      h1, h2, h3, h4, strong {
+        color: #000000 !important;
+        text-shadow: none !important;
+      }
+      p, span, li, div {
+        color: #334155 !important; /* Standard dark gray */
+      }
       a {
         text-decoration: none !important;
-        color: #000000 !important;
+        color: #0f172a !important;
       }
-      .section-divider {
-        border-bottom: 2px solid #000000 !important;
+      .print-link {
+        color: #0284c7 !important; /* Standard recognizable link blue for print */
       }
-    }
-
-    .section-title {
-      font-size: 0.95rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #881337;
-      border-bottom: 2px solid #881337;
-      padding-bottom: 0.25rem;
-      margin-bottom: 0.75rem;
-      margin-top: 1.25rem;
-      font-family: 'JetBrains Mono', monospace;
     }
   </style>
 </head>
-<body class="py-8 px-4 sm:px-6 min-h-screen">
+<body class="py-8 px-4 sm:px-6">
 
   <!-- Top Action Bar (Hidden on Print) -->
-  <div class="no-print max-w-4xl mx-auto mb-6 flex items-center justify-between bg-[#0a0a0e] p-4 border-2 border-rose-900 shadow-[4px_4px_0px_#881337]">
+  <div class="no-print max-w-4xl mx-auto mb-6 flex items-center justify-between screen-only-bg p-4 rounded-xl">
     <div class="flex items-center gap-3 font-mono">
-      <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-300 hover:text-white transition-colors">
+      <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300 hover:text-white transition-colors text-glow">
         <i class="fa-solid fa-arrow-left text-[10px]"></i>
         <span>[ Back to Portfolio ]</span>
       </a>
-      <span class="text-zinc-700">|</span>
-      <span class="text-xs text-zinc-400 font-mono uppercase tracking-widest">// ATS-Optimized Format</span>
+      <span class="text-cyan-800">|</span>
+      <span class="text-xs text-cyan-500/70 font-mono uppercase tracking-widest">// ATS-Optimized Format</span>
     </div>
 
     <div class="flex items-center gap-3">
-      <button onclick="window.print()" class="px-4 py-2 bg-rose-700 hover:bg-rose-600 text-white text-xs font-mono font-bold uppercase tracking-wider border-2 border-white shadow-[3px_3px_0px_#ffffff] inline-flex items-center gap-2 transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
-        <i class="fa-solid fa-print text-xs"></i>
+      <button onclick="window.print()" class="px-4 py-2 bg-[rgba(14,165,233,0.1)] hover:bg-[rgba(14,165,233,0.25)] border border-[rgba(34,211,238,0.5)] text-cyan-300 hover:text-white text-xs font-mono font-bold uppercase tracking-wider rounded-full shadow-[0_0_15px_rgba(14,165,233,0.2)] transition-all">
+        <i class="fa-solid fa-print text-xs mr-1.5"></i>
         <span>Print to PDF</span>
       </button>
     </div>
   </div>
 
   <!-- Main Resume Sheet -->
-  <main class="resume-container max-w-4xl mx-auto bg-white p-8 sm:p-12 border-2 border-zinc-900 shadow-[8px_8px_0px_#881337]">
+  <main class="resume-container max-w-4xl mx-auto screen-only-bg p-8 sm:p-12">
     
     <!-- HEADER -->
-    <header class="text-center border-b-2 border-zinc-900 pb-6 mb-4">
-      <h1 class="text-3xl sm:text-4xl font-black text-black tracking-tight mb-1 uppercase font-mono">NANDHINI J</h1>
-      <p class="text-sm sm:text-base font-bold text-rose-900 uppercase tracking-widest font-mono mb-3">// Aspiring Data Scientist &bull; Innovation Engineer Trainee</p>
+    <header class="text-center border-b border-[rgba(34,211,238,0.2)] print:border-b-2 print:border-slate-300 pb-6 mb-4">
+      <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-1 uppercase font-mono text-glow">NANDHINI J</h1>
+      <p class="text-sm sm:text-base font-bold text-bio-500 uppercase tracking-widest font-mono mb-3">Aspiring Data Scientist &bull; Innovation Engineer Trainee</p>
       
-      <div class="flex flex-wrap items-center justify-center gap-y-1 gap-x-4 text-xs text-zinc-700 font-mono font-bold">
+      <div class="flex flex-wrap items-center justify-center gap-y-1 gap-x-4 text-xs text-cyan-100/70 font-mono font-medium">
         <span class="inline-flex items-center gap-1.5">
-          <i class="fa-solid fa-location-dot text-rose-800 no-print"></i>
+          <i class="fa-solid fa-location-dot text-bio-400 no-print"></i>
           <span>Tamil Nadu, India</span>
         </span>
-        <span>&bull;</span>
+        <span class="text-cyan-800">&bull;</span>
         <span class="inline-flex items-center gap-1.5">
-          <i class="fa-solid fa-envelope text-rose-800 no-print"></i>
-          <a href="mailto:nandhini.03rvyer@gmail.com" class="hover:underline text-rose-900">nandhini.03rvyer@gmail.com</a>
+          <i class="fa-solid fa-envelope text-bio-400 no-print"></i>
+          <a href="mailto:nandhini.03rvyer@gmail.com" class="hover:text-white transition-colors print-link">nandhini.03rvyer@gmail.com</a>
         </span>
-        <span>&bull;</span>
+        <span class="text-cyan-800">&bull;</span>
         <span class="inline-flex items-center gap-1.5">
-          <i class="fa-brands fa-linkedin text-rose-800 no-print"></i>
-          <a href="https://www.linkedin.com/in/nandhini-j-837198426" target="_blank" class="hover:underline text-rose-900">linkedin.com/in/nandhini-j-837198426</a>
+          <i class="fa-brands fa-linkedin text-bio-400 no-print"></i>
+          <a href="https://www.linkedin.com/in/nandhini-j-837198426" target="_blank" class="hover:text-white transition-colors print-link">linkedin.com/in/nandhini-j-837198426</a>
         </span>
-        <span>&bull;</span>
+        <span class="text-cyan-800">&bull;</span>
         <span class="inline-flex items-center gap-1.5">
-          <i class="fa-brands fa-github text-rose-800 no-print"></i>
-          <a href="https://github.com/Nandhini-187" target="_blank" class="hover:underline text-rose-900">github.com/Nandhini-187</a>
+          <i class="fa-brands fa-github text-bio-400 no-print"></i>
+          <a href="https://github.com/Nandhini-187" target="_blank" class="hover:text-white transition-colors print-link">github.com/Nandhini-187</a>
         </span>
       </div>
     </header>
@@ -145,8 +166,8 @@
     <!-- PROFESSIONAL SUMMARY -->
     <section>
       <h2 class="section-title">01. Professional Summary</h2>
-      <p class="text-sm text-zinc-800 leading-relaxed text-justify">
-        Motivated and analytical 2nd-year <strong>B.Sc Data Science</strong> student and <strong>Innovation Engineer Trainee at PRICE ProtoSem</strong> with strong foundational expertise in <strong>Python, Power BI, Advanced Excel, and Machine Learning concepts</strong>. Skilled in exploratory data analysis (EDA), automated data manipulation, and building interactive business intelligence dashboards. Eager to leverage strong quantitative problem-solving skills and data storytelling capabilities in a Data Analyst or Data Science internship role.
+      <p class="text-sm text-cyan-50/80 leading-relaxed text-justify font-light">
+        Motivated and analytical 2nd-year <strong class="text-white font-medium">B.Sc Data Science</strong> student and <strong class="text-white font-medium">Innovation Engineer Trainee at PRICE ProtoSem</strong> with strong foundational expertise in <strong class="text-white font-medium">Python, Power BI, Advanced Excel, and Machine Learning concepts</strong>. Skilled in exploratory data analysis (EDA), automated data manipulation, and building interactive business intelligence dashboards. Eager to leverage strong quantitative problem-solving skills and data storytelling capabilities in a Data Analyst or Data Science internship role.
       </p>
     </section>
 
@@ -156,17 +177,17 @@
       <div class="space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between">
           <div>
-            <h3 class="text-base font-bold text-black uppercase font-mono">PRICE ProtoSem &mdash; Innovation Engineer Trainee</h3>
-            <p class="text-xs sm:text-sm font-bold text-rose-900 font-mono">20-Week Industry-Integrated Innovation Programme</p>
+            <h3 class="text-base font-bold text-white uppercase font-mono tracking-wide">PRICE ProtoSem &mdash; Innovation Engineer Trainee</h3>
+            <p class="text-xs sm:text-sm font-bold text-bio-400 font-mono">Industry-Integrated Innovation Programme</p>
           </div>
-          <div class="text-xs sm:text-sm font-bold text-zinc-600 sm:text-right mt-1 sm:mt-0 font-mono">
-            <span>[ 20-WEEK PROGRAM ]</span>
+          <div class="text-xs sm:text-sm font-medium text-cyan-300 sm:text-right mt-1 sm:mt-0 font-mono">
+            <span>20-Week Program (Weeks 00-19)</span>
           </div>
         </div>
-        <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-zinc-800 space-y-1">
+        <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-cyan-50/80 space-y-1 font-light">
           <li>Selected for a 20-week industry-integrated innovation programme focused on solving real-world retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship.</li>
           <li>Working with industry problem statements to explore, develop, and validate practical technology solutions beyond conventional classroom learning.</li>
-          <li><strong>Focus Domains:</strong> Phygital Retail & Intelligent Commerce, AI & Analytics, Intelligent Systems & IoT, Rapid Prototyping, and Entrepreneurship.</li>
+          <li><strong class="text-white font-medium">Focus Domains:</strong> Phygital Retail & Intelligent Commerce, AI & Analytics, Intelligent Systems & IoT, Rapid Prototyping, and Entrepreneurship.</li>
         </ul>
       </div>
     </section>
@@ -177,15 +198,15 @@
       <div class="space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between">
           <div>
-            <h3 class="text-base font-bold text-black uppercase font-mono">Bachelor of Science in Data Science</h3>
-            <p class="text-sm font-medium text-zinc-800">Kumaraguru College of Liberal Arts and Science</p>
+            <h3 class="text-base font-bold text-white uppercase font-mono tracking-wide">Bachelor of Science in Data Science</h3>
+            <p class="text-sm font-medium text-cyan-100">Kumaraguru College of Liberal Arts and Science</p>
           </div>
-          <div class="text-xs sm:text-sm font-bold text-zinc-600 sm:text-right mt-1 sm:mt-0 font-mono">
+          <div class="text-xs sm:text-sm font-medium text-cyan-300 sm:text-right mt-1 sm:mt-0 font-mono">
             <span>2024 – Present | 2nd Year</span>
           </div>
         </div>
-        <p class="text-xs text-zinc-600">
-          <strong>Key Coursework:</strong> Python for Data Science, Applied Statistics, Data Structures, Relational Databases, Business Analytics, Machine Learning Foundations, Data Visualization Techniques.
+        <p class="text-xs text-cyan-50/70 font-light">
+          <strong class="text-white font-medium">Key Coursework:</strong> Python for Data Science, Applied Statistics, Data Structures, Relational Databases, Business Analytics, Machine Learning Foundations, Data Visualization Techniques.
         </p>
       </div>
     </section>
@@ -193,24 +214,24 @@
     <!-- TECHNICAL SKILLS -->
     <section>
       <h2 class="section-title">04. Technical Skills</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-zinc-800">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm text-cyan-50/80 font-light">
         <div>
-          <strong class="text-black font-mono">Programming & Scripting:</strong> Python (Pandas, NumPy, Matplotlib, Seaborn)
+          <strong class="text-bio-400 font-mono font-bold tracking-wide">Programming & Scripting:</strong> <span class="text-white">Python (Pandas, NumPy, Matplotlib, Seaborn)</span>
         </div>
         <div>
-          <strong class="text-black font-mono">BI & Visualization:</strong> Microsoft Power BI, DAX, Interactive Dashboards
+          <strong class="text-bio-400 font-mono font-bold tracking-wide">BI & Visualization:</strong> <span class="text-white">Microsoft Power BI, DAX, Interactive Dashboards</span>
         </div>
         <div>
-          <strong class="text-black font-mono">Spreadsheet & Modeling:</strong> Advanced Excel (Pivot Tables, XLOOKUP, Nested Formulas)
+          <strong class="text-bio-400 font-mono font-bold tracking-wide">Spreadsheet & Modeling:</strong> <span class="text-white">Advanced Excel (Pivot Tables, XLOOKUP, Nested Formulas)</span>
         </div>
         <div>
-          <strong class="text-black font-mono">Machine Learning & Analytics:</strong> Exploratory Data Analysis (EDA), Regression, Classification
+          <strong class="text-bio-400 font-mono font-bold tracking-wide">Machine Learning & Analytics:</strong> <span class="text-white">Exploratory Data Analysis (EDA), Regression, Classification</span>
         </div>
         <div>
-          <strong class="text-black font-mono">Tools & Version Control:</strong> Git, GitHub, Jupyter Notebooks, VS Code
+          <strong class="text-bio-400 font-mono font-bold tracking-wide">Tools & Version Control:</strong> <span class="text-white">Git, GitHub, Jupyter Notebooks, VS Code</span>
         </div>
         <div>
-          <strong class="text-black font-mono">Soft Skills:</strong> Analytical Thinking, Data Storytelling, Collaboration, Problem Solving
+          <strong class="text-bio-400 font-mono font-bold tracking-wide">Soft Skills:</strong> <span class="text-white">Analytical Thinking, Data Storytelling, Collaboration, Problem Solving</span>
         </div>
       </div>
     </section>
@@ -218,15 +239,15 @@
     <!-- FEATURED PROJECTS & PRACTICAL WORK -->
     <section>
       <h2 class="section-title">05. Academic Projects & Practical Case Studies</h2>
-      <div class="space-y-4">
+      <div class="space-y-5">
         
         <!-- Project 1 -->
         <div>
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-            <h3 class="text-sm font-bold text-black uppercase font-mono">Sales Performance & Business Insights Dashboard</h3>
-            <span class="text-xs font-bold text-rose-800 font-mono">[ Power BI | Excel | DAX ]</span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1.5">
+            <h3 class="text-sm font-bold text-white uppercase font-mono tracking-wide">Sales Performance & Business Insights Dashboard</h3>
+            <span class="text-xs font-bold text-cyan-300 font-mono">[ Power BI | Excel | DAX ]</span>
           </div>
-          <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-zinc-800 space-y-1">
+          <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-cyan-50/80 space-y-1 font-light">
             <li>Constructed an interactive, multi-dimensional sales dashboard in Power BI analyzing regional revenue, profit margins, and customer demographic segments.</li>
             <li>Formulated custom DAX measures for Year-over-Year (YoY) growth calculations, dynamic KPI cards, and automated drill-down slicers.</li>
             <li>Conducted data cleansing and transformation on raw spreadsheet records using Advanced Excel and Power Query.</li>
@@ -235,11 +256,11 @@
 
         <!-- Project 2 -->
         <div>
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-            <h3 class="text-sm font-bold text-black uppercase font-mono">Exploratory Data Analysis (EDA) & Machine Learning Pipeline</h3>
-            <span class="text-xs font-bold text-rose-800 font-mono">[ Python | Pandas | Scikit-Learn ]</span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1.5">
+            <h3 class="text-sm font-bold text-white uppercase font-mono tracking-wide">Exploratory Data Analysis (EDA) & Machine Learning Pipeline</h3>
+            <span class="text-xs font-bold text-cyan-300 font-mono">[ Python | Pandas | Scikit-Learn ]</span>
           </div>
-          <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-zinc-800 space-y-1">
+          <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-cyan-50/80 space-y-1 font-light">
             <li>Developed structured Python scripts to perform comprehensive Exploratory Data Analysis (EDA) on structured numerical datasets.</li>
             <li>Identified correlation matrices, handled missing records, removed outliers, and visualized distributions using Matplotlib and Seaborn.</li>
             <li>Trained baseline Supervised Machine Learning models (Regression and Classification) to forecast target metrics and evaluated model performance with standard accuracy metrics.</li>
@@ -248,11 +269,11 @@
 
         <!-- Project 3 -->
         <div>
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-            <h3 class="text-sm font-bold text-black uppercase font-mono">Automated Data Modeling & Forecasting Toolkit</h3>
-            <span class="text-xs font-bold text-rose-800 font-mono">[ Advanced Excel | Stats ]</span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1.5">
+            <h3 class="text-sm font-bold text-white uppercase font-mono tracking-wide">Automated Data Modeling & Forecasting Toolkit</h3>
+            <span class="text-xs font-bold text-cyan-300 font-mono">[ Advanced Excel | Stats ]</span>
           </div>
-          <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-zinc-800 space-y-1">
+          <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-cyan-50/80 space-y-1 font-light">
             <li>Engineered complex financial and operational models utilizing dynamic nested XLOOKUP, INDEX/MATCH, and conditional aggregation functions.</li>
             <li>Designed automated summary Pivot Tables and dynamic charts for quick scenario-based decision making and trend forecasting.</li>
           </ul>
@@ -264,17 +285,17 @@
     <!-- LEARNING JOURNEY & ACTIVITIES -->
     <section>
       <h2 class="section-title">06. Learning Journey & Academic Focus</h2>
-      <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-zinc-800 space-y-1.5">
-        <li><strong>Continuous Learning:</strong> Actively completing self-directed micro-courses and practical labs in Applied Machine Learning, SQL Database querying, and Data Visualization.</li>
-        <li><strong>Data Exploration Enthusiast:</strong> Participating in collegiate analytics workshops and hands-on case study challenges at Kumaraguru College of Liberal Arts and Science.</li>
-        <li><strong>Open Source & Code Sharing:</strong> Actively maintaining project repositories and reproducible notebooks on GitHub (<a href="https://github.com/Nandhini-187" target="_blank" class="text-rose-900 underline font-bold">github.com/Nandhini-187</a>).</li>
+      <ul class="list-disc list-outside ml-5 text-xs sm:text-sm text-cyan-50/80 space-y-1.5 font-light">
+        <li><strong class="text-white font-medium">Continuous Learning:</strong> Actively completing self-directed micro-courses and practical labs in Applied Machine Learning, SQL Database querying, and Data Visualization.</li>
+        <li><strong class="text-white font-medium">Data Exploration Enthusiast:</strong> Participating in collegiate analytics workshops and hands-on case study challenges at Kumaraguru College of Liberal Arts and Science.</li>
+        <li><strong class="text-white font-medium">Open Source & Code Sharing:</strong> Actively maintaining project repositories and reproducible notebooks on GitHub (<a href="https://github.com/Nandhini-187" target="_blank" class="text-bio-400 hover:text-white transition-colors print-link">github.com/Nandhini-187</a>).</li>
       </ul>
     </section>
 
   </main>
 
-  <footer class="no-print text-center text-xs text-zinc-500 font-mono font-bold mt-6">
-    &copy; 2026 Nandhini J &bull; Neo-Brutalist Minimalist ATS Layout
+  <footer class="no-print text-center text-[10px] text-cyan-500/50 font-mono font-medium mt-6">
+    &copy; 2026 NANDHINI J &bull; LIQUID GLASS ATS EXPORT
   </footer>
 
 </body>
