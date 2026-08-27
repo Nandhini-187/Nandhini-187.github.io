@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nandhini J — Data Science & Innovation Engineer</title>
+  <meta name="description" content="Portfolio of Nandhini J — B.Sc Data Science student & Innovation Engineer Trainee at PRICE ProtoSem. Built with Neo-Brutalist & Minimalist Dark Mode design in Maroon Red & Black.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans (Punchy Black/Bold) + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            border: '#4c0519',
+            background: '#050507',
+            foreground: '#fafafa',
+            maroon: {
+              950: '#140306',
+              900: '#2b060f',
+              850: '#4c0519',
+              800: '#881337', // Deep Maroon
+              700: '#9f1239', // Rich Crimson Maroon
+              600: '#be123c', // Bright Maroon Red
+              500: '#e11d48', // Vivid Rose Red
+              400: '#fb7185',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      background-color: #050507;
+      color: #fafafa;
+      overflow-x: hidden;
+    }
+
+    /* Minimalist Dark Mode Grid */
+    .brutalist-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(136, 19, 55, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(136, 19, 55, 0.08) 1px, transparent 1px);
+    }
+
+    /* Neo-Brutalist Tactile Cards */
+    .brutal-card {
+      background-color: #0a0a0e;
+      border: 2px solid #3f0714;
+      box-shadow: 4px 4px 0px #881337;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .brutal-card:hover {
+      border-color: #be123c;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #e11d48;
+    }
+
+    /* Neo-Brutalist Buttons */
+    .brutal-btn-primary {
+      background-color: #9f1239;
+      color: #ffffff;
+      border: 2px solid #e11d48;
+      box-shadow: 3px 3px 0px #ffffff;
+      transition: all 0.15s ease;
+    }
+    .brutal-btn-primary:hover {
+      background-color: #be123c;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px #ffffff;
+    }
+    .brutal-btn-primary:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px #ffffff;
+    }
+
+    .brutal-btn-secondary {
+      background-color: #0a0a0e;
+      color: #fda4af;
+      border: 2px solid #881337;
+      box-shadow: 3px 3px 0px #881337;
+      transition: all 0.15s ease;
+    }
+    .brutal-btn-secondary:hover {
+      border-color: #e11d48;
+      color: #ffffff;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px #e11d48;
+    }
+    .brutal-btn-secondary:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px #881337;
+    }
+
+    /* Brutalist Badges / Stamps */
+    .brutal-badge {
+      border: 1.5px solid #881337;
+      background-color: #1a0409;
+      box-shadow: 2px 2px 0px #881337;
+    }
+
+    /* ProtoSem Week Card */
+    .week-brutal-card {
+      background-color: #08080c;
+      border: 1.5px solid #2b060f;
+      box-shadow: 3px 3px 0px #4c0519;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .week-brutal-card:hover {
+      border-color: #e11d48;
+      transform: translate(-3px, -3px);
+      box-shadow: 5px 5px 0px #9f1239;
+    }
+
+    /* Active Tab */
+    .brutal-tab.active {
+      background-color: #881337;
+      color: #ffffff;
+      border-color: #e11d48;
+      box-shadow: 3px 3px 0px #ffffff;
+      font-weight: 700;
+    }
+
+    /* Dialog Backdrop */
+    .dialog-overlay {
+      background: rgba(3, 3, 5, 0.9);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Toast Notification */
+    #shadcn-toast {
+      transform: translateY(140%);
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #shadcn-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="selection:bg-rose-700 selection:text-white relative min-h-screen">
+
+  <!-- Minimalist Grid Backdrop -->
+  <div class="fixed inset-0 brutalist-grid pointer-events-none z-0"></div>
+
+  <!-- ================= NAVBAR (Neo-Brutalist Minimalist Dark) ================= -->
+  <header class="sticky top-0 z-50 w-full border-b-2 border-maroon-850 bg-[#050507]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+      
+      <!-- Brand Logo / Monogram -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="flex h-9 w-9 items-center justify-center bg-rose-900 text-white font-mono text-sm font-black border-2 border-rose-600 shadow-[2px_2px_0px_#ffffff] group-hover:translate-x-[-1px] group-hover:translate-y-[-1px] transition-all">
+          NJ
+        </div>
+        <div class="flex flex-col">
+          <span class="font-black text-sm tracking-wider uppercase text-white group-hover:text-rose-400 transition-colors">Nandhini J</span>
+          <span class="text-[10px] font-mono text-zinc-400 -mt-0.5 tracking-widest">// DATA SCIENCE</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-mono font-bold uppercase tracking-widest">
+        <a href="#about" class="text-zinc-400 hover:text-rose-400 transition-colors">[ 01. ABOUT ]</a>
+        <a href="#skills" class="text-zinc-400 hover:text-rose-400 transition-colors">[ 02. SKILLS ]</a>
+        <a href="#protosem" class="text-rose-300 hover:text-white transition-colors flex items-center gap-1.5 px-2.5 py-1 bg-rose-950 border border-rose-700 shadow-[2px_2px_0px_#881337]">
+          <span class="w-1.5 h-1.5 bg-rose-500 animate-ping"></span>
+          <span>PROTOSEM</span>
+        </a>
+        <a href="#projects" class="text-zinc-400 hover:text-rose-400 transition-colors">[ 03. WORKS ]</a>
+        <a href="#journey" class="text-zinc-400 hover:text-rose-400 transition-colors">[ 04. JOURNEY ]</a>
+        <a href="#contact" class="text-zinc-400 hover:text-rose-400 transition-colors">[ 05. CONTACT ]</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="resume.html" target="_blank" class="brutal-btn-secondary px-3.5 py-1.5 text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-rose-400"></i>
+          <span>Resume</span>
+        </a>
+        <a href="#contact" class="hidden sm:flex brutal-btn-primary px-3.5 py-1.5 text-xs font-mono font-bold uppercase tracking-wider items-center gap-1.5">
+          <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+          <span>Connect</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero" class="relative z-10 py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <div class="flex flex-col items-center text-center">
+      
+      <!-- Status Stamp -->
+      <div data-aos="fade-down" class="mb-6 brutal-badge px-3.5 py-1.5 text-xs font-mono font-bold uppercase tracking-widest text-rose-200 flex items-center gap-2">
+        <span class="w-2 h-2 bg-rose-500 animate-pulse"></span>
+        <span>STATUS: OPEN FOR INTERNSHIPS</span>
+      </div>
+
+      <!-- Avatar with Sharp Neo-Brutalist Frame -->
+      <div data-aos="zoom-in" class="relative mb-6">
+        <div class="relative w-28 h-28 sm:w-32 sm:h-32 bg-black border-2 border-rose-700 shadow-[4px_4px_0px_#881337] p-1 overflow-hidden">
+          <img 
+            id="user-avatar"
+            src="profile.jpg" 
+            alt="Nandhini J" 
+            class="w-full h-full object-cover grayscale contrast-125"
+            onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nandhini+J&background=881337&color=ffffff&size=256&bold=true&font-size=0.4';"
+          />
+        </div>
+      </div>
+
+      <!-- Main Headline (Punchy Neo-Brutalist Typography) -->
+      <h1 data-aos="fade-up" class="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white mb-2 leading-none">
+        Nandhini J
+      </h1>
+
+      <!-- Dynamic Sub-headline -->
+      <div data-aos="fade-up" data-aos-delay="100" class="flex items-center justify-center gap-2 text-sm sm:text-base font-mono font-bold text-rose-400 mb-6 h-7 uppercase tracking-wider">
+        <span>&gt;&gt;</span>
+        <span id="typed-text" class="text-white"></span>
+      </div>
+
+      <!-- Bio / Mission Statement -->
+      <p data-aos="fade-up" data-aos-delay="150" class="max-w-2xl text-zinc-300 text-sm sm:text-base leading-relaxed mb-8 font-mono">
+        2nd-year <strong class="text-white font-bold underline decoration-rose-600 decoration-2 underline-offset-4">B.Sc Data Science</strong> at <span class="text-rose-300 font-semibold">Kumaraguru College of Liberal Arts and Science</span> & <strong class="text-white font-bold underline decoration-rose-600 decoration-2 underline-offset-4">Innovation Engineer Trainee</strong> at PRICE ProtoSem. Transforming raw data into automated insights with Python, Power BI, and Machine Learning.
+      </p>
+
+      <!-- Neo-Brutalist CTA Buttons -->
+      <div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap items-center justify-center gap-3.5">
+        <a href="#protosem" class="brutal-btn-primary px-6 py-3 text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
+          <i data-lucide="compass" class="w-4 h-4"></i>
+          <span>ProtoSem Archive</span>
+        </a>
+        <a href="#projects" class="brutal-btn-secondary px-6 py-3 text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
+          <i data-lucide="folder-git-2" class="w-4 h-4 text-rose-400"></i>
+          <span>Featured Works</span>
+        </a>
+        <a href="https://www.linkedin.com/in/nandhini-j-837198426" target="_blank" rel="noopener noreferrer" class="brutal-btn-secondary px-4 py-3 text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
+          <i data-lucide="linkedin" class="w-4 h-4 text-rose-400"></i>
+          <span class="sr-only sm:not-sr-only">LinkedIn</span>
+        </a>
+        <a href="https://github.com/Nandhini-187" target="_blank" rel="noopener noreferrer" class="brutal-btn-secondary px-4 py-3 text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
+          <i data-lucide="github" class="w-4 h-4 text-rose-400"></i>
+          <span class="sr-only sm:not-sr-only">GitHub</span>
+        </a>
+      </div>
+
+      <!-- Quick Brutalist Metrics Ribbon -->
+      <div data-aos="fade-up" data-aos-delay="300" class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-4xl">
+        <div class="brutal-card p-4 text-center">
+          <div class="text-3xl font-black font-mono text-rose-400">20 WKS</div>
+          <div class="text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-1">PRICE ProtoSem</div>
+        </div>
+        <div class="brutal-card p-4 text-center">
+          <div class="text-3xl font-black font-mono text-rose-400">YEAR 02</div>
+          <div class="text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-1">B.Sc Data Science</div>
+        </div>
+        <div class="brutal-card p-4 text-center">
+          <div class="text-3xl font-black font-mono text-rose-400">03+</div>
+          <div class="text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-1">Core Toolsets</div>
+        </div>
+        <div class="brutal-card p-4 text-center">
+          <div class="text-3xl font-black font-mono text-rose-400">ACTIVE</div>
+          <div class="text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-widest mt-1">Innovation Trainee</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section id="about" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t-2 border-maroon-850">
+    <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-2" data-aos="fade-up">
+      <div>
+        <div class="inline-block brutal-badge px-2.5 py-0.5 text-xs font-mono font-bold uppercase text-rose-300 mb-2">
+          // 01. PROFILE OVERVIEW
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+          Background & Focus
+        </h2>
+      </div>
+      <div class="text-xs font-mono text-zinc-400 tracking-widest uppercase">
+        ACADEMIC DISCIPLINE &bull; ANALYTICAL RIGOR
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <!-- Left: Story Card -->
+      <div class="lg:col-span-7 brutal-card p-6 sm:p-8" data-aos="fade-right">
+        <h3 class="text-xl font-black uppercase tracking-wide text-white mb-4 flex items-center gap-2 font-mono">
+          <span class="text-rose-500">#</span>
+          <span>Analytical Reasoning & Practical Exploration</span>
+        </h3>
+        
+        <div class="space-y-4 text-zinc-300 text-sm leading-relaxed font-mono">
+          <p>
+            I am <strong class="text-white bg-rose-950 px-1 border border-rose-800">Nandhini J</strong>, an undergraduate Data Science student at <span class="text-rose-200">Kumaraguru College of Liberal Arts and Science</span> and an <strong class="text-white bg-rose-950 px-1 border border-rose-800">Innovation Engineer Trainee</strong> at PRICE ProtoSem.
+          </p>
+          <p>
+            My work centers on exploratory data analysis (EDA), automated data cleaning pipelines, and quantitative model interpretation. I work across <strong class="text-white underline decoration-rose-500">Python</strong> for data manipulation, <strong class="text-white underline decoration-rose-500">Power BI</strong> for interactive dashboards, and <strong class="text-white underline decoration-rose-500">Advanced Excel</strong> for multi-tier spreadsheet models.
+          </p>
+          <p>
+            Through PRICE ProtoSem, I collaborate on real-world industry problem statements spanning AI, IoT, phygital commerce, and rapid prototype validation.
+          </p>
+        </div>
+
+        <div class="my-6 border-t border-rose-950"></div>
+
+        <div class="flex flex-wrap gap-4 text-xs font-mono text-zinc-400">
+          <div class="flex items-center gap-1.5">
+            <span class="text-rose-500 font-bold">&gt;</span>
+            <span>LOCATION: Tamil Nadu, India</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-rose-500 font-bold">&gt;</span>
+            <span>CONTACT: nandhini.03rvyer@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Three Structured Pillar Cards -->
+      <div class="lg:col-span-5 space-y-3.5" data-aos="fade-left">
+        
+        <div class="brutal-card p-5">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-sm font-black font-mono uppercase text-white flex items-center gap-2">
+              <span class="text-rose-500">01.</span>
+              <span>Data Visualization</span>
+            </h4>
+            <span class="brutal-badge text-[10px] font-mono font-bold text-rose-300 px-2 py-0.5">BI</span>
+          </div>
+          <p class="text-xs text-zinc-300 font-mono leading-relaxed">
+            Constructing interactive Power BI reports, dynamic DAX measures, and clear visual narratives for KPI monitoring.
+          </p>
+        </div>
+
+        <div class="brutal-card p-5">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-sm font-black font-mono uppercase text-white flex items-center gap-2">
+              <span class="text-rose-500">02.</span>
+              <span>Machine Learning & EDA</span>
+            </h4>
+            <span class="brutal-badge text-[10px] font-mono font-bold text-rose-300 px-2 py-0.5">ML</span>
+          </div>
+          <p class="text-xs text-zinc-300 font-mono leading-relaxed">
+            Studying supervised learning models, classification pipelines, outlier detection, and statistical evaluation with Python.
+          </p>
+        </div>
+
+        <div class="brutal-card p-5">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-sm font-black font-mono uppercase text-white flex items-center gap-2">
+              <span class="text-rose-500">03.</span>
+              <span>Spreadsheet Modeling</span>
+            </h4>
+            <span class="brutal-badge text-[10px] font-mono font-bold text-rose-300 px-2 py-0.5">EXCEL</span>
+          </div>
+          <p class="text-xs text-zinc-300 font-mono leading-relaxed">
+            Developing advanced Excel workbooks with nested XLOOKUP formulas, automated pivot tables, and scenario analysis.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS SECTION ================= -->
+  <section id="skills" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t-2 border-maroon-850">
+    <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-2" data-aos="fade-up">
+      <div>
+        <div class="inline-block brutal-badge px-2.5 py-0.5 text-xs font-mono font-bold uppercase text-rose-300 mb-2">
+          // 02. COMPETENCIES
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+          Technical Stack
+        </h2>
+      </div>
+      <div class="text-xs font-mono text-zinc-400 tracking-widest uppercase">
+        LANGUAGES &bull; FRAMEWORKS &bull; TOOLS
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Card 1: Core Technologies -->
+      <div class="brutal-card p-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center justify-between mb-5 border-b-2 border-rose-950 pb-3">
+          <div>
+            <span class="text-xs font-mono text-rose-400 font-bold">// STACK 01</span>
+            <h3 class="text-base font-black font-mono uppercase text-white">Programming & Core</h3>
+          </div>
+          <i data-lucide="code" class="w-5 h-5 text-rose-400"></i>
+        </div>
+
+        <div class="space-y-4 font-mono text-xs">
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">Python (Data Operations)</span>
+              <span class="text-rose-400">78%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[78%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">Pandas & NumPy</span>
+              <span class="text-rose-400">72%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[72%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">Matplotlib & Seaborn</span>
+              <span class="text-rose-400">75%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[75%]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: BI & Visualization -->
+      <div class="brutal-card p-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center justify-between mb-5 border-b-2 border-rose-950 pb-3">
+          <div>
+            <span class="text-xs font-mono text-rose-400 font-bold">// STACK 02</span>
+            <h3 class="text-base font-black font-mono uppercase text-white">BI & Analytics</h3>
+          </div>
+          <i data-lucide="bar-chart-3" class="w-5 h-5 text-rose-400"></i>
+        </div>
+
+        <div class="space-y-4 font-mono text-xs">
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">Microsoft Power BI</span>
+              <span class="text-rose-400">82%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[82%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">Advanced Excel (XLOOKUP)</span>
+              <span class="text-rose-400">88%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[88%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">DAX Formulas</span>
+              <span class="text-rose-400">80%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[80%]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: ML & Data Concepts -->
+      <div class="brutal-card p-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex items-center justify-between mb-5 border-b-2 border-rose-950 pb-3">
+          <div>
+            <span class="text-xs font-mono text-rose-400 font-bold">// STACK 03</span>
+            <h3 class="text-base font-black font-mono uppercase text-white">Data Science & ML</h3>
+          </div>
+          <i data-lucide="cpu" class="w-5 h-5 text-rose-400"></i>
+        </div>
+
+        <div class="space-y-4 font-mono text-xs">
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">Exploratory Analysis (EDA)</span>
+              <span class="text-rose-400">80%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[80%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">Supervised ML Concepts</span>
+              <span class="text-rose-400">70%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[70%]"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5 font-bold">
+              <span class="text-white">Data Cleansing Pipelines</span>
+              <span class="text-rose-400">76%</span>
+            </div>
+            <div class="h-2 w-full bg-black border border-rose-900 overflow-hidden">
+              <div class="h-full bg-rose-600 w-[76%]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Brutalist Tags Strip -->
+    <div class="mt-6 brutal-card p-4 flex flex-wrap items-center justify-center gap-2" data-aos="fade-up">
+      <span class="text-xs font-mono font-bold text-rose-400 mr-2 uppercase">// DISCIPLINES:</span>
+      <span class="brutal-badge px-2.5 py-1 text-xs font-mono font-bold text-zinc-200"># PYTHON-SCRIPTING</span>
+      <span class="brutal-badge px-2.5 py-1 text-xs font-mono font-bold text-zinc-200"># POWER-BI-DAX</span>
+      <span class="brutal-badge px-2.5 py-1 text-xs font-mono font-bold text-zinc-200"># SPREADSHEET-MODELING</span>
+      <span class="brutal-badge px-2.5 py-1 text-xs font-mono font-bold text-zinc-200"># SUPERVISED-ML</span>
+      <span class="brutal-badge px-2.5 py-1 text-xs font-mono font-bold text-zinc-200"># STATISTICAL-ANALYSIS</span>
+      <span class="brutal-badge px-2.5 py-1 text-xs font-mono font-bold text-zinc-200"># DATA-STORYTELLING</span>
+    </div>
+  </section>
+
+  <!-- ================= PROTOSEM SECTION ================= -->
+  <section id="protosem" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t-2 border-maroon-850 scroll-mt-16">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-10" data-aos="fade-up">
+      <div class="inline-block brutal-badge px-3 py-1 text-xs font-mono font-bold uppercase tracking-widest text-rose-300 mb-3">
+        [ PROGRAMME ARCHIVE &bull; PROTOSEM ]
+      </div>
+      <h2 class="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white">
+        PRICE ProtoSem
+      </h2>
+      <div class="text-sm font-bold text-rose-400 font-mono mt-1 uppercase">
+        Innovation Engineer Trainee &bull; 20-Week Industry-Integrated Programme
+      </div>
+    </div>
+
+    <!-- Programme Description Card -->
+    <div class="brutal-card p-6 sm:p-8 mb-8" data-aos="fade-up">
+      <div class="max-w-3xl mx-auto text-center space-y-3 text-zinc-300 text-sm leading-relaxed font-mono">
+        <p>
+          Selected for a <strong class="text-white font-bold bg-rose-950 px-1 border border-rose-800">20-week industry-integrated innovation programme</strong> focused on solving real-world retail and commerce challenges through <span class="text-rose-200">AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship</span>.
+        </p>
+        <p class="text-xs text-zinc-400">
+          Working with industry problem statements to explore, develop, and validate practical technology solutions beyond conventional classroom learning.
+        </p>
+      </div>
+
+      <!-- Domain Focus Badges -->
+      <div class="mt-6 pt-6 border-t-2 border-rose-950">
+        <div class="text-center text-xs font-mono font-bold text-rose-400 mb-4 uppercase tracking-widest">
+          // PROGRAMME DISCIPLINES & FOCUS AREAS
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
+          
+          <div class="brutal-badge px-3 py-1.5 text-xs font-mono font-bold text-zinc-200 flex items-center gap-2">
+            <i data-lucide="store" class="w-3.5 h-3.5 text-rose-400"></i>
+            <span>Phygital Retail & Intelligent Commerce</span>
+          </div>
+
+          <div class="brutal-badge px-3 py-1.5 text-xs font-mono font-bold text-zinc-200 flex items-center gap-2">
+            <i data-lucide="brain" class="w-3.5 h-3.5 text-rose-400"></i>
+            <span>AI & Analytics</span>
+          </div>
+
+          <div class="brutal-badge px-3 py-1.5 text-xs font-mono font-bold text-zinc-200 flex items-center gap-2">
+            <i data-lucide="network" class="w-3.5 h-3.5 text-rose-400"></i>
+            <span>Intelligent Systems & IoT</span>
+          </div>
+
+          <div class="brutal-badge px-3 py-1.5 text-xs font-mono font-bold text-zinc-200 flex items-center gap-2">
+            <i data-lucide="box" class="w-3.5 h-3.5 text-rose-400"></i>
+            <span>Prototyping</span>
+          </div>
+
+          <div class="brutal-badge px-3 py-1.5 text-xs font-mono font-bold text-zinc-200 flex items-center gap-2">
+            <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-rose-400"></i>
+            <span>Entrepreneurship</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Programme Progress Stepper -->
+    <div class="brutal-card p-5 mb-8" data-aos="fade-up">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 mb-3 text-xs font-mono font-bold">
+        <span class="text-rose-400 uppercase tracking-widest flex items-center gap-1.5">
+          <i data-lucide="git-commit" class="w-4 h-4"></i>
+          <span>20-WEEK ARCHIVE PROGRESSION</span>
+        </span>
+        <span class="text-zinc-400 uppercase">
+          [ 01 PROGRAMME &bull; 04 PHASES &bull; 20 WEEKS ]
+        </span>
+      </div>
+
+      <div class="relative flex items-center justify-between w-full px-2 py-3">
+        <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-black border-y border-rose-950 z-0"></div>
+        
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-7 h-7 bg-rose-950 border-2 border-rose-600 shadow-[2px_2px_0px_#881337] flex items-center justify-center text-[10px] font-mono font-black text-white">01</div>
+          <span class="text-[9px] font-mono font-bold text-zinc-400 mt-1 uppercase">Start</span>
+        </div>
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-7 h-7 bg-rose-950 border-2 border-rose-600 shadow-[2px_2px_0px_#881337] flex items-center justify-center text-[10px] font-mono font-black text-white">05</div>
+          <span class="text-[9px] font-mono font-bold text-zinc-400 mt-1 uppercase">Phase 1</span>
+        </div>
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-7 h-7 bg-rose-950 border-2 border-rose-600 shadow-[2px_2px_0px_#881337] flex items-center justify-center text-[10px] font-mono font-black text-white">10</div>
+          <span class="text-[9px] font-mono font-bold text-zinc-400 mt-1 uppercase">Phase 2</span>
+        </div>
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-7 h-7 bg-rose-950 border-2 border-rose-600 shadow-[2px_2px_0px_#881337] flex items-center justify-center text-[10px] font-mono font-black text-white">15</div>
+          <span class="text-[9px] font-mono font-bold text-zinc-400 mt-1 uppercase">Phase 3</span>
+        </div>
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-7 h-7 bg-rose-700 border-2 border-white shadow-[2px_2px_0px_#ffffff] flex items-center justify-center text-[10px] font-mono font-black text-white">20</div>
+          <span class="text-[9px] font-mono font-bold text-rose-400 mt-1 uppercase">Phase 4</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase Tabs (Neo-Brutalist Rectangular Selector) -->
+    <div class="flex justify-center mb-8" data-aos="fade-up">
+      <div class="flex flex-wrap justify-center gap-2 font-mono text-xs">
+        <button onclick="filterPhase('all')" class="brutal-tab active px-4 py-2 border-2 border-rose-900 bg-black text-zinc-300 uppercase tracking-wider transition-all cursor-pointer" data-phase="all">
+          [ ALL WEEKS (01–20) ]
+        </button>
+        <button onclick="filterPhase(1)" class="brutal-tab px-4 py-2 border-2 border-rose-900 bg-black text-zinc-300 uppercase tracking-wider transition-all cursor-pointer" data-phase="1">
+          PHASE 01 (W 01–05)
+        </button>
+        <button onclick="filterPhase(2)" class="brutal-tab px-4 py-2 border-2 border-rose-900 bg-black text-zinc-300 uppercase tracking-wider transition-all cursor-pointer" data-phase="2">
+          PHASE 02 (W 06–10)
+        </button>
+        <button onclick="filterPhase(3)" class="brutal-tab px-4 py-2 border-2 border-rose-900 bg-black text-zinc-300 uppercase tracking-wider transition-all cursor-pointer" data-phase="3">
+          PHASE 03 (W 11–15)
+        </button>
+        <button onclick="filterPhase(4)" class="brutal-tab px-4 py-2 border-2 border-rose-900 bg-black text-zinc-300 uppercase tracking-wider transition-all cursor-pointer" data-phase="4">
+          PHASE 04 (W 16–20)
+        </button>
+      </div>
+    </div>
+
+    <!-- 20-Week Cards Grid -->
+    <div id="protosem-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5" data-aos="fade-up">
+      <!-- Rendered dynamically -->
+    </div>
+
+    <div class="mt-6 text-center" data-aos="fade-up">
+      <div class="inline-block brutal-badge px-4 py-1.5 text-xs font-mono text-zinc-300 font-bold uppercase">
+        &gt;&gt; CLICK ANY WEEK BLOCK TO INSPECT SPRINT LOG &bull; FUTURE STORIES COMING SOON
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= PROJECTS SECTION ================= -->
+  <section id="projects" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t-2 border-maroon-850">
+    <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-2" data-aos="fade-up">
+      <div>
+        <div class="inline-block brutal-badge px-2.5 py-0.5 text-xs font-mono font-bold uppercase text-rose-300 mb-2">
+          // 03. CASE STUDIES
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+          Featured Works
+        </h2>
+      </div>
+      <div class="text-xs font-mono text-zinc-400 tracking-widest uppercase">
+        ANALYTICS DASHBOARDS &bull; MACHINE LEARNING PIPELINES
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Project 1 -->
+      <div class="brutal-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-6">
+          <div class="h-32 bg-black border-2 border-rose-950 p-4 mb-5 flex flex-col items-center justify-center">
+            <i data-lucide="line-chart" class="w-8 h-8 text-rose-400 mb-2"></i>
+            <span class="text-[11px] font-mono font-bold text-rose-300">[ POWER BI & EXCEL ]</span>
+          </div>
+
+          <h3 class="text-base font-black font-mono uppercase text-white mb-2">
+            Sales Performance & Customer Insights Dashboard
+          </h3>
+          <p class="text-zinc-300 text-xs leading-relaxed mb-4 font-mono">
+            Interactive multi-page Power BI dashboard designed with custom DAX measures, regional breakdown slicers, and key performance indicators for revenue forecasting.
+          </p>
+
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">POWER-BI</span>
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">DAX</span>
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">ADVANCED-EXCEL</span>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0 flex items-center justify-between border-t-2 border-rose-950 text-xs font-mono font-bold">
+          <span class="text-zinc-400">// BI ANALYTICS</span>
+          <a href="https://github.com/Nandhini-187" target="_blank" class="text-rose-400 hover:text-white flex items-center gap-1">
+            <span>[ REPO ]</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="brutal-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+        <div class="p-6">
+          <div class="h-32 bg-black border-2 border-rose-950 p-4 mb-5 flex flex-col items-center justify-center">
+            <i data-lucide="git-branch" class="w-8 h-8 text-rose-400 mb-2"></i>
+            <span class="text-[11px] font-mono font-bold text-rose-300">[ PYTHON & SCIKIT-LEARN ]</span>
+          </div>
+
+          <h3 class="text-base font-black font-mono uppercase text-white mb-2">
+            Exploratory Data Analysis & Predictive Pipeline
+          </h3>
+          <p class="text-zinc-300 text-xs leading-relaxed mb-4 font-mono">
+            End-to-end Python exploratory data analysis script cleaning missing values, detecting statistical outliers, and training baseline classification & regression models.
+          </p>
+
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">PYTHON</span>
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">PANDAS</span>
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">SCIKIT-LEARN</span>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0 flex items-center justify-between border-t-2 border-rose-950 text-xs font-mono font-bold">
+          <span class="text-zinc-400">// ML PIPELINE</span>
+          <a href="https://github.com/Nandhini-187" target="_blank" class="text-rose-400 hover:text-white flex items-center gap-1">
+            <span>[ REPO ]</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="brutal-card flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+        <div class="p-6">
+          <div class="h-32 bg-black border-2 border-rose-950 p-4 mb-5 flex flex-col items-center justify-center">
+            <i data-lucide="file-spreadsheet" class="w-8 h-8 text-rose-400 mb-2"></i>
+            <span class="text-[11px] font-mono font-bold text-rose-300">[ FINANCIAL MODELING ]</span>
+          </div>
+
+          <h3 class="text-base font-black font-mono uppercase text-white mb-2">
+            Automated Excel Data Modeling & Forecasting Toolkit
+          </h3>
+          <p class="text-zinc-300 text-xs leading-relaxed mb-4 font-mono">
+            Structured spreadsheet solution utilizing dynamic nested XLOOKUP formulas, automated pivot charts, scenario managers, and statistical variance summaries.
+          </p>
+
+          <div class="flex flex-wrap gap-1.5 font-mono text-[10px] font-bold">
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">EXCEL</span>
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">PIVOTS</span>
+            <span class="brutal-badge px-2 py-0.5 text-rose-200">FORECASTING</span>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0 flex items-center justify-between border-t-2 border-rose-950 text-xs font-mono font-bold">
+          <span class="text-zinc-400">// SPREADSHEET</span>
+          <a href="https://github.com/Nandhini-187" target="_blank" class="text-rose-400 hover:text-white flex items-center gap-1">
+            <span>[ REPO ]</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= LEARNING JOURNEY ================= -->
+  <section id="journey" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t-2 border-maroon-850">
+    <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-2" data-aos="fade-up">
+      <div>
+        <div class="inline-block brutal-badge px-2.5 py-0.5 text-xs font-mono font-bold uppercase text-rose-300 mb-2">
+          // 04. CHRONOLOGY
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+          Learning Journey
+        </h2>
+      </div>
+      <div class="text-xs font-mono text-zinc-400 tracking-widest uppercase">
+        MILESTONES &bull; ACADEMIC PROGRESSION
+      </div>
+    </div>
+
+    <div class="relative border-l-2 border-rose-900 ml-4 sm:ml-28 space-y-8">
+      
+      <!-- Milestone 0: ProtoSem -->
+      <div class="relative pl-6 sm:pl-8" data-aos="fade-left">
+        <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-rose-600 border-2 border-white shadow-[2px_2px_0px_#881337]"></div>
+        <span class="hidden sm:block absolute -left-32 top-0.5 text-xs font-mono font-bold text-rose-400">[ 20-WEEKS ]</span>
+        
+        <div class="brutal-card p-5 sm:p-6">
+          <div class="sm:hidden text-xs font-mono font-bold text-rose-400 mb-1">[ 20-WEEKS PROGRAM ]</div>
+          <h3 class="text-base font-black font-mono uppercase text-white">PRICE ProtoSem &mdash; Innovation Engineer Trainee</h3>
+          <p class="text-xs font-mono text-rose-300 mb-2 font-bold">// INDUSTRY-INTEGRATED INNOVATION PROGRAM</p>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed font-mono">
+            Working on industry problem statements in Phygital Retail, AI & Analytics, IoT, prototyping, and tech-driven venture validation across a structured 4-phase timeline.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone 1: College Degree -->
+      <div class="relative pl-6 sm:pl-8" data-aos="fade-left" data-aos-delay="100">
+        <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-rose-900 border-2 border-black"></div>
+        <span class="hidden sm:block absolute -left-32 top-0.5 text-xs font-mono font-bold text-zinc-400">[ 2024-NOW ]</span>
+        
+        <div class="brutal-card p-5 sm:p-6">
+          <div class="sm:hidden text-xs font-mono font-bold text-zinc-400 mb-1">[ 2024 – PRESENT ]</div>
+          <h3 class="text-base font-black font-mono uppercase text-white">B.Sc Data Science (2nd Year)</h3>
+          <p class="text-xs font-mono text-zinc-400 mb-2 font-bold">// KUMARAGURU COLLEGE OF LIBERAL ARTS AND SCIENCE</p>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed font-mono">
+            Actively pursuing coursework in Statistical Analysis, Database Management, Python for Data Science, Mathematics for Machine Learning, and Business Intelligence.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone 2: BI Mastery -->
+      <div class="relative pl-6 sm:pl-8" data-aos="fade-left" data-aos-delay="200">
+        <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-zinc-800 border-2 border-black"></div>
+        <span class="hidden sm:block absolute -left-32 top-0.5 text-xs font-mono font-bold text-zinc-400">[ CONTINUOUS ]</span>
+        
+        <div class="brutal-card p-5 sm:p-6">
+          <div class="sm:hidden text-xs font-mono font-bold text-zinc-400 mb-1">[ CONTINUOUS ]</div>
+          <h3 class="text-base font-black font-mono uppercase text-white">Data Analytics & Visualization Mastery</h3>
+          <p class="text-xs font-mono text-zinc-400 mb-2 font-bold">// SELF-DIRECTED PRACTICAL LABS</p>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed font-mono">
+            Completing structured projects in Microsoft Power BI, mastering DAX calculation patterns, dynamic parameter slicing, and Advanced Excel workbook automation.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACT SECTION ================= -->
+  <section id="contact" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t-2 border-maroon-850">
+    <div class="brutal-card p-8 sm:p-12 text-center" data-aos="zoom-in">
+      <div class="inline-block brutal-badge px-3 py-1 text-xs font-mono font-bold uppercase text-rose-300 mb-3">
+        // 05. TERMINAL CONTACT
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mb-3">
+        Let's Connect & Collaborate
+      </h2>
+      <p class="text-zinc-300 max-w-md mx-auto text-xs sm:text-sm leading-relaxed mb-6 font-mono">
+        Actively seeking <strong class="text-white underline decoration-rose-500">internship opportunities, research projects, and data analytics roles</strong>. Transmit a message below:
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="mailto:nandhini.03rvyer@gmail.com" class="brutal-btn-primary px-5 py-3 text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>nandhini.03rvyer@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/nandhini-j-837198426" target="_blank" rel="noopener noreferrer" class="brutal-btn-secondary px-5 py-3 text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-2">
+          <i data-lucide="linkedin" class="w-4 h-4 text-rose-400"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="resume.html" target="_blank" class="brutal-btn-secondary px-5 py-3 text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-2">
+          <i data-lucide="file-text" class="w-4 h-4 text-rose-400"></i>
+          <span>ATS Resume</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="relative z-10 border-t-2 border-maroon-850 py-8 px-4 text-center text-xs font-mono font-bold text-zinc-500">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        [ BUILT BY <span class="text-white">NANDHINI J</span> &bull; 2026 NEO-BRUTALIST ARCHIVE ]
+      </div>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="https://github.com/Nandhini-187" target="_blank" class="text-zinc-400 hover:text-rose-400 transition-colors"><i data-lucide="github" class="w-4 h-4"></i></a>
+        <a href="https://www.linkedin.com/in/nandhini-j-837198426" target="_blank" class="text-zinc-400 hover:text-rose-400 transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        <a href="mailto:nandhini.03rvyer@gmail.com" class="text-zinc-400 hover:text-rose-400 transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= NEO-BRUTALIST MODAL DIALOG ================= -->
+  <div id="shadcn-dialog" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div onclick="closeDialog()" class="dialog-overlay fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-md bg-[#0a0a0e] border-2 border-rose-600 shadow-[6px_6px_0px_#881337] p-6 animate-in fade-in-0 zoom-in-95">
+      <div class="flex items-center justify-between mb-4 border-b-2 border-rose-950 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="flex h-8 w-8 items-center justify-center bg-rose-900 border-2 border-rose-500 text-white text-xs font-mono font-black shadow-[2px_2px_0px_#ffffff]" id="dialog-phase-badge">
+            P1
+          </div>
+          <div>
+            <h3 class="text-base font-black font-mono uppercase text-white" id="dialog-week-title">WEEK 01</h3>
+            <p class="text-xs text-rose-400 font-mono font-bold uppercase" id="dialog-phase-title">Phase 01: Ideation & Discovery</p>
+          </div>
+        </div>
+        <button onclick="closeDialog()" class="p-1 border border-rose-900 bg-black text-rose-400 hover:text-white hover:bg-rose-950 transition-colors">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="border-2 border-rose-950 bg-black p-4 mb-4 text-xs font-mono space-y-2">
+        <div class="flex justify-between text-zinc-400">
+          <span>// STATUS:</span>
+          <span class="text-rose-300 font-bold uppercase">Field Notes In Progress</span>
+        </div>
+        <div class="flex justify-between text-zinc-400">
+          <span>// PROGRAMME:</span>
+          <span class="text-white font-bold">PRICE ProtoSem (20-Wks)</span>
+        </div>
+        <div class="flex justify-between text-zinc-400">
+          <span>// ROUTE:</span>
+          <span class="text-rose-300 font-bold" id="dialog-slug">/protosem/week-01</span>
+        </div>
+      </div>
+
+      <p class="text-xs text-zinc-300 leading-relaxed mb-5 font-mono">
+        Detailed technical reflections, sprint logs, and architectural notes for this week are currently being compiled.
+      </p>
+
+      <div class="flex justify-end gap-2">
+        <button onclick="closeDialog()" class="brutal-btn-primary px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-wider">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BRUTALIST TOAST NOTIFICATION ================= -->
+  <div id="shadcn-toast" class="fixed bottom-5 right-5 z-50 flex items-center gap-3 border-2 border-rose-600 bg-[#0a0a0e] p-4 shadow-[4px_4px_0px_#881337] max-w-sm">
+    <div class="w-7 h-7 bg-rose-900 flex items-center justify-center text-white shrink-0 border border-rose-500 font-mono font-bold">
+      !
+    </div>
+    <div class="text-xs font-mono">
+      <div class="font-bold text-white uppercase" id="toast-title">ProtoSem Week Selected</div>
+      <div class="text-rose-300" id="toast-desc">Field notes placeholder inspected.</div>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      duration: 500,
+      offset: 20,
+      easing: 'ease-out'
+    });
+
+    // Initialize Typed.js
+    new Typed('#typed-text', {
+      strings: [
+        'Data Scientist',
+        'Innovation Engineer Trainee',
+        'Data Analytics Specialist',
+        'Power BI & DAX Explorer'
+      ],
+      typeSpeed: 45,
+      backSpeed: 25,
+      backDelay: 1500,
+      loop: true
+    });
+
+    // ==========================================
+    // PROTOSEM DATA-DRIVEN ARCHITECTURE (20 WEEKS)
+    // ==========================================
+    const protoSemWeeks = [
+      { week: 1, phase: 1, slug: "week-01", status: "Field Notes in Progress" },
+      { week: 2, phase: 1, slug: "week-02", status: "Field Notes in Progress" },
+      { week: 3, phase: 1, slug: "week-03", status: "Field Notes in Progress" },
+      { week: 4, phase: 1, slug: "week-04", status: "Field Notes in Progress" },
+      { week: 5, phase: 1, slug: "week-05", status: "Field Notes in Progress" },
+      
+      { week: 6, phase: 2, slug: "week-06", status: "Field Notes in Progress" },
+      { week: 7, phase: 2, slug: "week-07", status: "Field Notes in Progress" },
+      { week: 8, phase: 2, slug: "week-08", status: "Field Notes in Progress" },
+      { week: 9, phase: 2, slug: "week-09", status: "Field Notes in Progress" },
+      { week: 10, phase: 2, slug: "week-10", status: "Field Notes in Progress" },
+
+      { week: 11, phase: 3, slug: "week-11", status: "Field Notes in Progress" },
+      { week: 12, phase: 3, slug: "week-12", status: "Field Notes in Progress" },
+      { week: 13, phase: 3, slug: "week-13", status: "Field Notes in Progress" },
+      { week: 14, phase: 3, slug: "week-14", status: "Field Notes in Progress" },
+      { week: 15, phase: 3, slug: "week-15", status: "Field Notes in Progress" },
+
+      { week: 16, phase: 4, slug: "week-16", status: "Field Notes in Progress" },
+      { week: 17, phase: 4, slug: "week-17", status: "Field Notes in Progress" },
+      { week: 18, phase: 4, slug: "week-18", status: "Field Notes in Progress" },
+      { week: 19, phase: 4, slug: "week-19", status: "Field Notes in Progress" },
+      { week: 20, phase: 4, slug: "week-20", status: "Field Notes in Progress" }
+    ];
+
+    function renderProtoSemCards(filter = 'all') {
+      const container = document.getElementById('protosem-cards-grid');
+      if (!container) return;
+
+      const filteredWeeks = filter === 'all' 
+        ? protoSemWeeks 
+        : protoSemWeeks.filter(w => w.phase === parseInt(filter));
+
+      container.innerHTML = filteredWeeks.map(item => {
+        const paddedWeek = String(item.week).padStart(2, '0');
+        return `
+          <div 
+            onclick="openWeekDialog('${paddedWeek}', '${item.phase}', '${item.slug}')"
+            tabindex="0"
+            role="button"
+            aria-label="Week ${paddedWeek}"
+            class="week-brutal-card p-4 cursor-pointer relative overflow-hidden flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-rose-500"
+          >
+            <!-- Top bar -->
+            <div class="flex items-center justify-between mb-3 border-b border-rose-950 pb-2">
+              <span class="text-[10px] font-mono font-bold text-rose-400">
+                P0${item.phase}
+              </span>
+              <span class="text-[10px] font-mono text-zinc-500 group-hover:text-white transition-colors">
+                [OPEN]
+              </span>
+            </div>
+
+            <!-- Week Number -->
+            <div class="my-1.5">
+              <div class="text-base font-black font-mono text-white flex items-baseline gap-1">
+                <span class="text-xs text-rose-500">WK</span>
+                <span>${paddedWeek}</span>
+              </div>
+            </div>
+
+            <!-- Bottom status -->
+            <div class="pt-2 border-t border-rose-950/80 flex items-center justify-between text-[9px] font-mono font-bold text-zinc-400 uppercase">
+              <span>FIELD NOTES</span>
+              <span class="text-rose-400 group-hover:text-white">SOON</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // Tab Filter
+    function filterPhase(phase) {
+      document.querySelectorAll('.brutal-tab').forEach(tab => {
+        if (tab.dataset.phase === String(phase)) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+      renderProtoSemCards(phase);
+    }
+
+    // Dialog Modal Handlers
+    function openWeekDialog(weekNum, phaseNum, slug) {
+      const dialog = document.getElementById('shadcn-dialog');
+      document.getElementById('dialog-week-title').textContent = `WEEK ${weekNum}`;
+      document.getElementById('dialog-phase-badge').textContent = `P${phaseNum}`;
+      document.getElementById('dialog-phase-title').textContent = `Phase 0${phaseNum} Programme Archive`;
+      document.getElementById('dialog-slug').textContent = `/protosem/${slug}`;
+
+      dialog.classList.remove('hidden');
+      dialog.classList.add('flex');
+      lucide.createIcons();
+
+      history.replaceState(null, null, `#protosem/${slug}`);
+      showToast(`WEEK ${weekNum} SELECTED`, `Inspecting Phase 0${phaseNum} sprint metadata.`);
+    }
+
+    function closeDialog() {
+      const dialog = document.getElementById('shadcn-dialog');
+      dialog.classList.add('hidden');
+      dialog.classList.remove('flex');
+    }
+
+    // Toast Trigger
+    let toastTimer;
+    function showToast(title, desc) {
+      const toast = document.getElementById('shadcn-toast');
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-desc').textContent = desc;
+
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Initial render
+    renderProtoSemCards('all');
+  </script>
+</body>
+</html>
