@@ -6,10 +6,10 @@
   <title>Nandhini J — Data Science & Innovation Engineer</title>
   <meta name="description" content="Portfolio of Nandhini J — B.Sc Data Science student & Innovation Engineer Trainee at PRICE ProtoSem. Bento Grid Dark Minimalist Monochrome layout.">
   
-  <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono -->
+  <!-- Google Fonts: Playfair Display + Plus Jakarta Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -62,6 +62,19 @@
       background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Vortex Background Mask */
+    .mask-radial-faded {
+      mask-image: radial-gradient(circle at center, black 15%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle at center, black 15%, transparent 70%);
+    }
+
+    /* Signature Font */
+    .signature-font {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 500;
     }
 
     /* Bento Cards */
@@ -184,137 +197,95 @@
   <!-- Ambient Minimal Light Accent -->
   <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-white/[0.04] to-transparent blur-3xl pointer-events-none z-0"></div>
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="sticky top-0 z-50 w-full border-b border-zinc-850 bg-black/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-      
-      <!-- Brand / Monogram -->
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-700 text-white font-mono text-xs font-bold group-hover:border-white transition-colors">
-          NJ
+  <!-- ================= REDESIGNED NAVBAR ================= -->
+  <header class="w-full z-50 pt-6 absolute top-0 left-0 right-0">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-14 bg-zinc-900/60 backdrop-blur-md rounded-full border border-zinc-800 px-6">
+        <!-- Live Clock -->
+        <div id="live-clock" class="font-mono text-white text-sm font-bold tracking-widest">
+          15:44:06
         </div>
-        <div class="flex flex-col">
-          <span class="font-bold text-sm tracking-tight text-white group-hover:text-zinc-300 transition-colors">Nandhini J</span>
-          <span class="text-[10px] font-mono text-zinc-500 tracking-widest">// DATA SCIENCE</span>
+        
+        <!-- Navigation Pills -->
+        <nav class="hidden md:flex items-center gap-2">
+          <a href="#hero" class="px-5 py-2 rounded-full bg-zinc-800 text-white text-xs font-semibold tracking-wide transition-colors">Home</a>
+          <a href="#about" class="px-5 py-2 rounded-full text-zinc-400 hover:text-white text-xs font-semibold tracking-wide transition-colors">About</a>
+          <a href="#contact" class="px-5 py-2 rounded-full text-zinc-400 hover:text-white text-xs font-semibold tracking-wide transition-colors">Contact</a>
+        </nav>
+
+        <!-- Icon Actions -->
+        <div class="flex items-center gap-3 text-zinc-400">
+          <button class="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-800 hover:text-white transition-colors"><i data-lucide="maximize" class="w-3.5 h-3.5"></i></button>
+          <a href="https://github.com/Nandhini-187" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-800 hover:text-white transition-colors"><i data-lucide="github" class="w-3.5 h-3.5"></i></a>
+          <a href="resume.html" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-800 hover:text-white transition-colors"><i data-lucide="file-text" class="w-3.5 h-3.5"></i></a>
         </div>
-      </a>
-
-      <!-- Navigation Links -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-mono tracking-wider text-zinc-400">
-        <a href="#hero" class="hover:text-white transition-colors">01. INTRO</a>
-        <a href="#about" class="hover:text-white transition-colors">02. ABOUT</a>
-        <a href="#skills" class="hover:text-white transition-colors">03. SKILLS</a>
-        <a href="#protosem" class="text-white hover:text-zinc-300 transition-colors flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-700">
-          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-          <span>PROTOSEM</span>
-        </a>
-        <a href="#projects" class="hover:text-white transition-colors">04. WORKS</a>
-        <a href="#journey" class="hover:text-white transition-colors">05. JOURNEY</a>
-      </nav>
-
-      <!-- Action Buttons -->
-      <div class="flex items-center gap-3">
-        <a href="resume.html" target="_blank" class="mono-btn-secondary px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium tracking-wider flex items-center gap-1.5">
-          <i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i>
-          <span>Resume</span>
-        </a>
-        <a href="#contact" class="hidden sm:flex mono-btn-primary px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold tracking-wider items-center gap-1.5">
-          <i data-lucide="send" class="w-3.5 h-3.5"></i>
-          <span>Connect</span>
-        </a>
       </div>
     </div>
   </header>
 
-  <!-- ================= BENTO GRID HERO & INTRO SECTION ================= -->
-  <section id="hero" class="relative z-10 pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto min-h-[90vh] flex flex-col justify-center overflow-hidden">
+  <!-- ================= TYPOGRAPHY HERO SECTION ================= -->
+  <section id="hero" class="relative z-10 w-full min-h-[95vh] flex flex-col justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 mb-8">
     
-    <!-- Hero Background with Shake Effect -->
-    <div id="hero-bg" class="absolute inset-[-10%] z-[-1] bg-[url('intro-bg.jpg')] bg-cover bg-center bg-no-repeat opacity-90 mix-blend-screen" style="will-change: transform;"></div>
-
-    <!-- Bento Grid Container -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 relative z-10 w-full">
-      
-      <!-- BENTO BLOCK 1: MAIN INTRO CARD (Left 5 Cols) -->
-      <div class="md:col-span-5 glass-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between" data-aos="fade-right">
-        <div>
-          <!-- Status Pill -->
-          <div class="inline-flex items-center gap-2 mono-badge px-3 py-1 rounded-full text-xs font-mono text-zinc-300 mb-5">
-            <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-            <span>AVAILABLE FOR INTERNSHIPS &bull; 2026</span>
-          </div>
-
-          <!-- Name & Title -->
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-3">
-            Nandhini J
-          </h1>
-
-          <!-- Dynamic Role Subheading -->
-          <div class="flex items-center gap-2 text-xs sm:text-sm font-mono text-zinc-400 mb-5 h-6">
-            <span class="text-zinc-600">//</span>
-            <span id="typed-text" class="text-white font-medium"></span>
-          </div>
-
-          <!-- Self Intro Statement -->
-          <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-light max-w-xl">
-            2nd-year <strong class="text-white font-medium">B.Sc Data Science</strong> student at <span class="text-zinc-100 font-medium">Kumaraguru College of Liberal Arts and Science</span> & <strong class="text-white font-medium">Innovation Engineer Trainee</strong> at PRICE ProtoSem. Passionate about exploratory data analysis, business intelligence dashboards, and building practical machine learning pipelines with Python, Power BI, and Advanced Excel.
-          </p>
-        </div>
-
-        <!-- CTA Action Buttons & Links -->
-        <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-zinc-850">
-          <a href="#protosem" class="mono-btn-primary px-4 py-2.5 rounded-lg text-xs font-mono tracking-wider flex items-center gap-2">
-            <i data-lucide="compass" class="w-3.5 h-3.5"></i>
-            <span>ProtoSem Archive (W00–W19)</span>
-          </a>
-          <a href="resume.html" target="_blank" class="mono-btn-secondary px-4 py-2.5 rounded-lg text-xs font-mono tracking-wider flex items-center gap-2">
-            <i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i>
-            <span>ATS Resume</span>
-          </a>
-          <a href="https://github.com/Nandhini-187" target="_blank" rel="noopener noreferrer" class="mono-btn-secondary px-4 py-2.5 rounded-lg text-xs font-mono tracking-wider flex items-center gap-2">
-            <i data-lucide="github" class="w-3.5 h-3.5"></i>
-            <span>GitHub</span>
-          </a>
-          <a href="https://www.linkedin.com/in/nandhini-j-837198426" target="_blank" rel="noopener noreferrer" class="mono-btn-secondary px-4 py-2.5 rounded-lg text-xs font-mono tracking-wider flex items-center gap-2">
-            <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
-            <span>LinkedIn</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- SPACER FOR DESIGN VISIBILITY -->
-      <div class="hidden md:block md:col-span-3 pointer-events-none"></div>
-
-      <!-- BENTO BLOCK 2: PICTURE CARD BESIDE INTRO (Right 4 Cols) -->
-      <div class="md:col-span-4 glass-card p-6 rounded-2xl flex flex-col justify-between" data-aos="fade-left">
-        
-        <!-- Picture Frame with Badges -->
-        <div class="relative w-full aspect-square max-w-[260px] mx-auto rounded-xl overflow-hidden bg-black border border-zinc-800 p-1 group">
-          <img 
-            id="user-avatar"
-            src="profile.jpg" 
-            alt="Nandhini J — Profile Picture" 
-            class="w-full h-full object-cover object-top rounded-lg group-hover:scale-105 transition-all duration-300"
-            onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nandhini+J&background=121215&color=ffffff&size=512&bold=true&font-size=0.35';"
-          />
-          <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-black/80 backdrop-blur-md border border-zinc-800 py-1 px-2.5 rounded-md flex items-center justify-between text-[10px] font-mono">
-            <span class="text-zinc-400">Nandhini J</span>
-            <span class="text-white font-bold flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              VERIFIED
-            </span>
-          </div>
-        </div>
-
-        <!-- Picture Card Caption / Descriptor -->
-        <div class="mt-4 pt-3 border-t border-zinc-850 flex items-center justify-between text-xs font-mono text-zinc-400">
-          <span>// ACADEMIC CADRE</span>
-          <span class="text-white font-medium">B.Sc Data Science</span>
-        </div>
-      </div>
-
+    <!-- Red Accent Borders -->
+    <div class="absolute inset-y-0 left-4 sm:left-6 lg:left-8 w-[1px] bg-zinc-900 z-0 hidden sm:block">
+      <div class="absolute top-10 -left-[1.5px] w-[4px] h-[4px] bg-red-600 rounded-sm"></div>
+    </div>
+    <div class="absolute inset-y-0 right-4 sm:right-6 lg:right-8 w-[1px] bg-zinc-900 z-0 hidden sm:block">
+      <div class="absolute top-10 -left-[1.5px] w-[4px] h-[4px] bg-red-600 rounded-sm"></div>
     </div>
 
+    <!-- Vortex Background (Centered) -->
+    <div id="hero-bg" class="absolute inset-0 z-[-1] flex items-center justify-center pointer-events-none" style="will-change: transform;">
+      <div class="w-full max-w-[900px] aspect-square bg-[url('intro-bg.jpg')] bg-contain bg-center bg-no-repeat opacity-80 mix-blend-screen mask-radial-faded"></div>
+    </div>
+    
+    <div class="relative z-10 w-full px-2 sm:px-12 py-12 pt-20">
+      <!-- Top Meta Row -->
+      <div class="flex items-center justify-between mb-8 sm:mb-12">
+        <div class="text-red-600 text-[10px] font-bold tracking-[0.2em] font-mono uppercase">
+          CORE FOCUS
+        </div>
+        <div class="text-zinc-600 text-[9px] font-mono tracking-widest uppercase hidden sm:block">
+          DATA SCIENCE &bull; AI &bull; SOFTWARE ENGINEER
+        </div>
+      </div>
+
+      <!-- Giant Typography -->
+      <div class="max-w-4xl">
+        <h1 class="text-[2.5rem] sm:text-6xl lg:text-[5.5rem] font-bold tracking-tighter text-white leading-[1.05] mb-8">
+          <span class="text-zinc-700">"</span> Applied AI. <span class="text-zinc-500">Scalable Data.</span><br>
+          <span style="font-family: 'Playfair Display', serif;" class="italic font-medium lowercase tracking-normal text-[2.2rem] sm:text-[3.5rem] lg:text-[4.5rem]">robust software engineering<span class="text-zinc-700">."</span></span>
+        </h1>
+      </div>
+
+      <!-- Divider -->
+      <div class="h-px w-full bg-zinc-800/60 my-10 sm:my-16"></div>
+
+      <!-- 3-Column Footer -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div class="text-zinc-400 text-sm font-light leading-relaxed">
+          I build intelligent systems and the <span style="font-family: 'Playfair Display', serif;" class="italic text-white">data infrastructure</span> that makes them reliable at scale.
+        </div>
+        <div>
+          <div class="text-white text-[10px] font-bold tracking-widest uppercase mb-4">SCOPE & PLATFORM</div>
+          <p class="text-zinc-500 text-xs leading-relaxed mb-4">
+            Focusing on predictive models, optimized data processing, and pipelines designed for production environments and measurable performance.
+          </p>
+          <div class="text-red-600 italic text-xs tracking-wide" style="font-family: 'Playfair Display', serif;">Bridging labs and live systems.</div>
+        </div>
+        <div class="flex flex-col justify-between">
+          <div>
+            <div class="text-white text-[10px] font-bold tracking-widest uppercase mb-4">INTEGRATION</div>
+            <p class="text-zinc-500 text-xs leading-relaxed mb-6">
+              Beyond models, I architect full-stack ecosystems: robust data architectures, analytical dashboards, and scalable pipelines.
+            </p>
+          </div>
+          <div class="text-white text-3xl signature-font mt-4">
+            Nandhini
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ================= QUICK HIGHLIGHTS ================= -->
@@ -419,8 +390,29 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
       <!-- Left: Story -->
-      <div class="lg:col-span-7 bento-card p-6 sm:p-7 rounded-xl" data-aos="fade-right">
-        <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+      <div class="lg:col-span-7 bento-card p-6 sm:p-7 rounded-xl flex flex-col md:flex-row gap-6" data-aos="fade-right">
+        
+        <!-- Profile Picture Moved from Hero -->
+        <div class="w-full md:w-1/3 shrink-0">
+          <div class="relative w-full aspect-square max-w-[260px] mx-auto rounded-xl overflow-hidden bg-black border border-zinc-800 p-1 group">
+            <img 
+              id="user-avatar-about"
+              src="profile.jpg" 
+              alt="Nandhini J — Profile Picture" 
+              class="w-full h-full object-cover object-top rounded-lg group-hover:scale-105 transition-all duration-300"
+              onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nandhini+J&background=121215&color=ffffff&size=512&bold=true&font-size=0.35';"
+            />
+            <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-black/80 backdrop-blur-md border border-zinc-800 py-1 px-2 rounded-md flex justify-center text-[9px] font-mono">
+              <span class="text-white font-bold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                VERIFIED
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-2/3">
+          <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
           <i data-lucide="terminal" class="w-4 h-4 text-zinc-400"></i>
           <span>Data Analytics & Intelligent Systems</span>
         </h3>
@@ -449,6 +441,7 @@
             <span>Email: nandhini.03rvyer@gmail.com</span>
           </div>
         </div>
+        </div> <!-- End of story text wrapper -->
       </div>
 
       <!-- Right: Structured Pillar Cards -->
@@ -1280,6 +1273,20 @@
     }
 
     renderProtoSemCards('all');
+
+    // Live Clock Logic
+    function updateClock() {
+      const clockEl = document.getElementById('live-clock');
+      if(clockEl) {
+        const now = new Date();
+        const hrs = String(now.getHours()).padStart(2, '0');
+        const mins = String(now.getMinutes()).padStart(2, '0');
+        const secs = String(now.getSeconds()).padStart(2, '0');
+        clockEl.textContent = `${hrs}:${mins}:${secs}`;
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 
     // Parallax and shake effect for hero background
     let lastScrollY = window.scrollY;
