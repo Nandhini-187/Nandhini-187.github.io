@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -62,6 +62,16 @@
       background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Floating Animation */
+    @keyframes floatUpDown {
+      0% { transform: translateY(-40px); }
+      50% { transform: translateY(40px); }
+      100% { transform: translateY(-40px); }
+    }
+    .animate-float {
+      animation: floatUpDown 12s ease-in-out infinite;
     }
 
     /* Bento Cards */
@@ -229,8 +239,8 @@
   <!-- ================= BENTO GRID HERO & INTRO SECTION ================= -->
   <section id="hero" class="relative z-10 pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto min-h-[90vh] flex flex-col justify-center overflow-hidden">
     
-    <!-- Hero Background with Shake Effect -->
-    <div id="hero-bg" class="absolute inset-[-10%] z-[-1] bg-[url('intro-bg.jpg')] bg-cover bg-center bg-no-repeat opacity-90 mix-blend-screen" style="will-change: transform;"></div>
+    <!-- Hero Background with Floating Effect -->
+    <div id="hero-bg" class="absolute inset-[-10%] z-[-1] bg-[url('network-bg.png')] bg-cover bg-center bg-no-repeat opacity-90 mix-blend-screen" style="will-change: transform;"></div>
 
     <!-- Bento Grid Container -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 relative z-10 w-full">
@@ -1281,30 +1291,20 @@
 
     renderProtoSemCards('all');
 
-    // Parallax and shake effect for hero background
-    let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', () => {
+    // Animation for hero background
+    let time = 0;
+    function animateBackground() {
       const heroBg = document.getElementById('hero-bg');
       if (heroBg) {
-        const currentScrollY = window.scrollY;
-        const isScrollingDown = currentScrollY > lastScrollY;
-        lastScrollY = currentScrollY;
-        
-        // Parallax Y offset
-        const parallaxY = currentScrollY * 0.4;
-        
-        // Shake only when scrolling down
-        let shakeX = 0;
-        let shakeY = 0;
-        if (isScrollingDown && currentScrollY < window.innerHeight) {
-          shakeX = (Math.random() - 0.5) * 8; // Random between -4px and 4px
-          shakeY = (Math.random() - 0.5) * 8;
-        }
-        
-        heroBg.style.transform = `translate3d(${shakeX}px, ${parallaxY + shakeY}px, 0)`;
+        heroBg.style.backgroundImage = "url('network-bg.png')";
+        // Subtle vertical oscillation
+        const yOffset = Math.sin(time) * 20;
+        heroBg.style.transform = `translateY(${yOffset}px)`;
+        time += 0.02;
       }
-    });
+      requestAnimationFrame(animateBackground);
+    }
+    animateBackground();
   </script>
 </body>
 </html>
-
