@@ -76,6 +76,20 @@
       transform: translateY(-2px);
     }
 
+    /* Glass Cards for Hero */
+    .glass-card {
+      background-color: rgba(9, 9, 11, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(39, 39, 42, 0.5);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(82, 82, 91, 0.7);
+      background-color: rgba(17, 17, 21, 0.65);
+      transform: translateY(-2px);
+    }
+
     /* Monochrome Buttons */
     .mono-btn-primary {
       background-color: #ffffff;
@@ -213,13 +227,16 @@
   </header>
 
   <!-- ================= BENTO GRID HERO & INTRO SECTION ================= -->
-  <section id="hero" class="relative z-10 pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+  <section id="hero" class="relative z-10 pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto min-h-[90vh] flex flex-col justify-center overflow-hidden">
     
+    <!-- Hero Background with Shake Effect -->
+    <div id="hero-bg" class="absolute inset-[-10%] z-[-1] bg-[url('intro-bg.jpg')] bg-cover bg-center bg-no-repeat opacity-90 mix-blend-screen" style="will-change: transform;"></div>
+
     <!-- Bento Grid Container -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 relative z-10 w-full">
       
       <!-- BENTO BLOCK 1: MAIN INTRO CARD (Left 8 Cols) -->
-      <div class="md:col-span-8 bento-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between" data-aos="fade-right">
+      <div class="md:col-span-8 glass-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between" data-aos="fade-right">
         <div>
           <!-- Status Pill -->
           <div class="inline-flex items-center gap-2 mono-badge px-3 py-1 rounded-full text-xs font-mono text-zinc-300 mb-5">
@@ -266,7 +283,7 @@
       </div>
 
       <!-- BENTO BLOCK 2: PICTURE CARD BESIDE INTRO (Right 4 Cols) -->
-      <div class="md:col-span-4 bento-card p-6 rounded-2xl flex flex-col justify-between" data-aos="fade-left">
+      <div class="md:col-span-4 glass-card p-6 rounded-2xl flex flex-col justify-between" data-aos="fade-left">
         
         <!-- Picture Frame with Badges -->
         <div class="relative w-full aspect-square max-w-[260px] mx-auto rounded-xl overflow-hidden bg-black border border-zinc-800 p-1 group">
@@ -294,7 +311,7 @@
       </div>
 
       <!-- BENTO BLOCK 3: PROTOSEM PROGRAMME SPOTLIGHT (Col Span 5) -->
-      <div class="md:col-span-5 bento-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+      <div class="md:col-span-5 glass-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
         <div>
           <div class="flex items-center justify-between mb-3 text-xs font-mono text-zinc-400">
             <span class="flex items-center gap-1.5 text-white font-medium">
@@ -317,7 +334,7 @@
       </div>
 
       <!-- BENTO BLOCK 4: CORE TOOLING MATRIX (Col Span 4) -->
-      <div class="md:col-span-4 bento-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="150">
+      <div class="md:col-span-4 glass-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="150">
         <div>
           <div class="flex items-center justify-between mb-3 text-xs font-mono text-zinc-400">
             <span class="flex items-center gap-1.5 text-white font-medium">
@@ -353,7 +370,7 @@
       </div>
 
       <!-- BENTO BLOCK 5: LOCATION & CONTACT QUICK CARD (Col Span 3) -->
-      <div class="md:col-span-3 bento-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+      <div class="md:col-span-3 glass-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
         <div>
           <div class="flex items-center justify-between mb-3 text-xs font-mono text-zinc-400">
             <span class="flex items-center gap-1.5 text-white font-medium">
@@ -1253,6 +1270,30 @@
     }
 
     renderProtoSemCards('all');
+
+    // Parallax and shake effect for hero background
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const heroBg = document.getElementById('hero-bg');
+      if (heroBg) {
+        const currentScrollY = window.scrollY;
+        const isScrollingDown = currentScrollY > lastScrollY;
+        lastScrollY = currentScrollY;
+        
+        // Parallax Y offset
+        const parallaxY = currentScrollY * 0.4;
+        
+        // Shake only when scrolling down
+        let shakeX = 0;
+        let shakeY = 0;
+        if (isScrollingDown && currentScrollY < window.innerHeight) {
+          shakeX = (Math.random() - 0.5) * 8; // Random between -4px and 4px
+          shakeY = (Math.random() - 0.5) * 8;
+        }
+        
+        heroBg.style.transform = `translate3d(${shakeX}px, ${parallaxY + shakeY}px, 0)`;
+      }
+    });
   </script>
 </body>
 </html>
