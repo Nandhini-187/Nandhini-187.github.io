@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nandhini J — Data Science & Innovation Engineer</title>
-  <meta name="description" content="Portfolio of Nandhini J — B.Sc Data Science student & Innovation Engineer Trainee at PRICE ProtoSem. Dark Minimalist Monochrome layout.">
+  <meta name="description" content="Portfolio of Nandhini J — B.Sc Data Science student & Innovation Engineer Trainee at PRICE ProtoSem. Bento Grid Dark Minimalist Monochrome layout.">
   
   <!-- Google Fonts: Plus Jakarta Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -64,15 +64,15 @@
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
 
-    /* Minimalist Dark Monochrome Cards */
-    .mono-card {
+    /* Bento Cards */
+    .bento-card {
       background-color: #09090b;
       border: 1px solid #27272a;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .mono-card:hover {
+    .bento-card:hover {
       border-color: #52525b;
-      background-color: #121215;
+      background-color: #111115;
       transform: translateY(-2px);
     }
 
@@ -87,7 +87,7 @@
     .mono-btn-primary:hover {
       background-color: #e4e4e7;
       color: #000000;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     .mono-btn-secondary {
@@ -187,15 +187,15 @@
 
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-6 text-xs font-mono tracking-wider text-zinc-400">
-        <a href="#about" class="hover:text-white transition-colors">01. ABOUT</a>
-        <a href="#skills" class="hover:text-white transition-colors">02. SKILLS</a>
+        <a href="#hero" class="hover:text-white transition-colors">01. INTRO</a>
+        <a href="#about" class="hover:text-white transition-colors">02. ABOUT</a>
+        <a href="#skills" class="hover:text-white transition-colors">03. SKILLS</a>
         <a href="#protosem" class="text-white hover:text-zinc-300 transition-colors flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-700">
           <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
           <span>PROTOSEM</span>
         </a>
-        <a href="#projects" class="hover:text-white transition-colors">03. WORKS</a>
-        <a href="#journey" class="hover:text-white transition-colors">04. JOURNEY</a>
-        <a href="#contact" class="hover:text-white transition-colors">05. CONTACT</a>
+        <a href="#projects" class="hover:text-white transition-colors">04. WORKS</a>
+        <a href="#journey" class="hover:text-white transition-colors">05. JOURNEY</a>
       </nav>
 
       <!-- Action Buttons -->
@@ -212,92 +212,177 @@
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section id="hero" class="relative z-10 py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
+  <!-- ================= BENTO GRID HERO & INTRO SECTION ================= -->
+  <section id="hero" class="relative z-10 pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
     
-    <!-- Status Pill -->
-    <div data-aos="fade-down" class="inline-flex items-center gap-2 mono-badge px-3.5 py-1.5 rounded-full text-xs font-mono tracking-widest text-zinc-300 mb-8">
-      <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-      <span>OPEN FOR INTERNSHIPS</span>
-    </div>
+    <!-- Bento Grid Container -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      
+      <!-- BENTO BLOCK 1: MAIN INTRO CARD (Left 8 Cols) -->
+      <div class="md:col-span-8 bento-card p-6 sm:p-8 rounded-2xl flex flex-col justify-between" data-aos="fade-right">
+        <div>
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2 mono-badge px-3 py-1 rounded-full text-xs font-mono text-zinc-300 mb-5">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+            <span>AVAILABLE FOR INTERNSHIPS &bull; 2026</span>
+          </div>
 
-    <!-- Avatar -->
-    <div data-aos="zoom-in" class="mb-6 flex justify-center">
-      <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-zinc-900 border border-zinc-700">
-        <img 
-          id="user-avatar"
-          src="profile.jpg" 
-          alt="Nandhini J" 
-          class="w-full h-full object-cover rounded-full grayscale contrast-125"
-          onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nandhini+J&background=18181b&color=ffffff&size=256&bold=true';"
-        />
+          <!-- Name & Title -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-3">
+            Nandhini J
+          </h1>
+
+          <!-- Dynamic Role Subheading -->
+          <div class="flex items-center gap-2 text-xs sm:text-sm font-mono text-zinc-400 mb-5 h-6">
+            <span class="text-zinc-600">//</span>
+            <span id="typed-text" class="text-white font-medium"></span>
+          </div>
+
+          <!-- Self Intro Statement -->
+          <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6 font-light max-w-xl">
+            2nd-year <strong class="text-white font-medium">B.Sc Data Science</strong> student at <span class="text-zinc-100 font-medium">Kumaraguru College of Liberal Arts and Science</span> & <strong class="text-white font-medium">Innovation Engineer Trainee</strong> at PRICE ProtoSem. Passionate about exploratory data analysis, business intelligence dashboards, and building practical machine learning pipelines with Python, Power BI, and Advanced Excel.
+          </p>
+        </div>
+
+        <!-- CTA Action Buttons & Links -->
+        <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-zinc-850">
+          <a href="#protosem" class="mono-btn-primary px-4 py-2.5 rounded-lg text-xs font-mono tracking-wider flex items-center gap-2">
+            <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            <span>ProtoSem Archive (W00–W19)</span>
+          </a>
+          <a href="resume.html" target="_blank" class="mono-btn-secondary px-4 py-2.5 rounded-lg text-xs font-mono tracking-wider flex items-center gap-2">
+            <i data-lucide="file-text" class="w-3.5 h-3.5 text-zinc-400"></i>
+            <span>ATS Resume</span>
+          </a>
+          <a href="https://github.com/Nandhini-187" target="_blank" rel="noopener noreferrer" class="mono-btn-secondary p-2.5 rounded-lg text-xs flex items-center justify-center">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/nandhini-j-837198426" target="_blank" rel="noopener noreferrer" class="mono-btn-secondary p-2.5 rounded-lg text-xs flex items-center justify-center">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <!-- Main Headline -->
-    <h1 data-aos="fade-up" class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-3">
-      Nandhini J
-    </h1>
+      <!-- BENTO BLOCK 2: PICTURE CARD BESIDE INTRO (Right 4 Cols) -->
+      <div class="md:col-span-4 bento-card p-6 rounded-2xl flex flex-col justify-between" data-aos="fade-left">
+        
+        <!-- Picture Frame with Badges -->
+        <div class="relative w-full aspect-square max-w-[260px] mx-auto rounded-xl overflow-hidden bg-black border border-zinc-800 p-1 group">
+          <img 
+            id="user-avatar"
+            src="profile.jpg" 
+            alt="Nandhini J — Profile Picture" 
+            class="w-full h-full object-cover rounded-lg grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+            onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nandhini+J&background=121215&color=ffffff&size=512&bold=true&font-size=0.35';"
+          />
+          <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-black/80 backdrop-blur-md border border-zinc-800 py-1 px-2.5 rounded-md flex items-center justify-between text-[10px] font-mono">
+            <span class="text-zinc-400">Nandhini J</span>
+            <span class="text-white font-bold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              VERIFIED
+            </span>
+          </div>
+        </div>
 
-    <!-- Dynamic Sub-headline -->
-    <div data-aos="fade-up" data-aos-delay="100" class="flex items-center justify-center gap-2 text-sm sm:text-base font-mono text-zinc-400 mb-6 h-7 tracking-wide">
-      <span>//</span>
-      <span id="typed-text" class="text-white font-medium"></span>
-    </div>
-
-    <!-- Bio / Focus -->
-    <p data-aos="fade-up" data-aos-delay="150" class="max-w-xl mx-auto text-zinc-400 text-sm sm:text-base leading-relaxed mb-8 font-light">
-      2nd-year <strong class="text-white font-medium">B.Sc Data Science</strong> student at <span class="text-zinc-200">Kumaraguru College of Liberal Arts and Science</span> & <strong class="text-white font-medium">Innovation Engineer Trainee</strong> at PRICE ProtoSem. Dedicated to data exploration, automated analytics, and practical machine learning solutions.
-    </p>
-
-    <!-- Call to Actions -->
-    <div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap items-center justify-center gap-3">
-      <a href="#protosem" class="mono-btn-primary px-5 py-2.5 rounded-lg text-xs font-mono tracking-wider flex items-center gap-2">
-        <i data-lucide="compass" class="w-4 h-4"></i>
-        <span>ProtoSem Archive</span>
-      </a>
-      <a href="#projects" class="mono-btn-secondary px-5 py-2.5 rounded-lg text-xs font-mono tracking-wider flex items-center gap-2">
-        <i data-lucide="folder-git-2" class="w-4 h-4 text-zinc-400"></i>
-        <span>Featured Projects</span>
-      </a>
-      <a href="https://github.com/Nandhini-187" target="_blank" rel="noopener noreferrer" class="mono-btn-secondary p-2.5 rounded-lg text-xs flex items-center justify-center">
-        <i data-lucide="github" class="w-4 h-4"></i>
-        <span class="sr-only">GitHub</span>
-      </a>
-      <a href="https://www.linkedin.com/in/nandhini-j-837198426" target="_blank" rel="noopener noreferrer" class="mono-btn-secondary p-2.5 rounded-lg text-xs flex items-center justify-center">
-        <i data-lucide="linkedin" class="w-4 h-4"></i>
-        <span class="sr-only">LinkedIn</span>
-      </a>
-    </div>
-
-    <!-- Quick Stats Grid -->
-    <div data-aos="fade-up" data-aos-delay="300" class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
-      <div class="mono-card p-4 rounded-xl text-center">
-        <div class="text-2xl font-bold font-mono text-white">20 WEEKS</div>
-        <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mt-1">PRICE ProtoSem</div>
+        <!-- Picture Card Caption / Descriptor -->
+        <div class="mt-4 pt-3 border-t border-zinc-850 flex items-center justify-between text-xs font-mono text-zinc-400">
+          <span>// ACADEMIC CADRE</span>
+          <span class="text-white font-medium">B.Sc Data Science</span>
+        </div>
       </div>
-      <div class="mono-card p-4 rounded-xl text-center">
-        <div class="text-2xl font-bold font-mono text-white">YEAR 02</div>
-        <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mt-1">B.Sc Data Science</div>
+
+      <!-- BENTO BLOCK 3: PROTOSEM PROGRAMME SPOTLIGHT (Col Span 5) -->
+      <div class="md:col-span-5 bento-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+        <div>
+          <div class="flex items-center justify-between mb-3 text-xs font-mono text-zinc-400">
+            <span class="flex items-center gap-1.5 text-white font-medium">
+              <i data-lucide="award" class="w-4 h-4 text-zinc-300"></i>
+              <span>PRICE PROTOSEM</span>
+            </span>
+            <span class="mono-badge text-[10px] px-2 py-0.5 rounded">20-WEEKS</span>
+          </div>
+          
+          <h3 class="text-base font-bold text-white mb-1.5">Innovation Engineer Trainee</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed font-light mb-3">
+            Selected for an industry-integrated innovation programme working on Phygital Retail, AI & Analytics, IoT, and Prototyping challenges.
+          </p>
+        </div>
+
+        <div class="flex items-center justify-between pt-3 border-t border-zinc-850 text-[11px] font-mono">
+          <span class="text-zinc-500">Timeline Structure:</span>
+          <span class="text-zinc-300 font-semibold">Weeks 00 &rarr; 19 (4 Phases)</span>
+        </div>
       </div>
-      <div class="mono-card p-4 rounded-xl text-center">
-        <div class="text-2xl font-bold font-mono text-white">03+</div>
-        <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mt-1">Core Toolsets</div>
+
+      <!-- BENTO BLOCK 4: CORE TOOLING MATRIX (Col Span 4) -->
+      <div class="md:col-span-4 bento-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="150">
+        <div>
+          <div class="flex items-center justify-between mb-3 text-xs font-mono text-zinc-400">
+            <span class="flex items-center gap-1.5 text-white font-medium">
+              <i data-lucide="cpu" class="w-4 h-4 text-zinc-300"></i>
+              <span>CORE TOOLSETS</span>
+            </span>
+            <span class="text-[10px] text-zinc-500 font-mono">[ ACTIVE ]</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+            <div class="p-2 rounded-lg bg-black border border-zinc-800 flex items-center gap-2">
+              <i data-lucide="code" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span class="text-white font-medium">Python</span>
+            </div>
+            <div class="p-2 rounded-lg bg-black border border-zinc-800 flex items-center gap-2">
+              <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span class="text-white font-medium">Power BI</span>
+            </div>
+            <div class="p-2 rounded-lg bg-black border border-zinc-800 flex items-center gap-2">
+              <i data-lucide="table" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span class="text-white font-medium">Adv. Excel</span>
+            </div>
+            <div class="p-2 rounded-lg bg-black border border-zinc-800 flex items-center gap-2">
+              <i data-lucide="network" class="w-3.5 h-3.5 text-zinc-400"></i>
+              <span class="text-white font-medium">Scikit-Learn</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-3 pt-3 border-t border-zinc-850 text-[10px] font-mono text-zinc-500">
+          // FOCUS: EDA &bull; DAX &bull; MODELING &bull; VIZ
+        </div>
       </div>
-      <div class="mono-card p-4 rounded-xl text-center">
-        <div class="text-2xl font-bold font-mono text-white">ACTIVE</div>
-        <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mt-1">Trainee Engineer</div>
+
+      <!-- BENTO BLOCK 5: LOCATION & CONTACT QUICK CARD (Col Span 3) -->
+      <div class="md:col-span-3 bento-card p-5 rounded-2xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+        <div>
+          <div class="flex items-center justify-between mb-3 text-xs font-mono text-zinc-400">
+            <span class="flex items-center gap-1.5 text-white font-medium">
+              <i data-lucide="map-pin" class="w-4 h-4 text-zinc-300"></i>
+              <span>BASE</span>
+            </span>
+            <span class="text-zinc-500 font-mono text-[10px]">INDIA</span>
+          </div>
+          
+          <div class="text-sm font-semibold text-white mb-1">Tamil Nadu, India</div>
+          <div class="text-xs font-mono text-zinc-400 truncate mb-3">Kumaraguru College (KCLAS)</div>
+        </div>
+
+        <a href="mailto:nandhini.03rvyer@gmail.com" class="pt-3 border-t border-zinc-850 flex items-center justify-between text-xs font-mono text-zinc-300 hover:text-white transition-colors">
+          <span class="truncate">nandhini.03rvyer...</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 shrink-0"></i>
+        </a>
       </div>
+
     </div>
 
   </section>
 
   <!-- ================= ABOUT SECTION ================= -->
-  <section id="about" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-zinc-900">
+  <section id="about" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-zinc-900">
     <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-2" data-aos="fade-up">
       <div>
         <div class="text-xs font-mono text-zinc-500 mb-1 tracking-widest">
-          // 01. PROFILE OVERVIEW
+          // 02. PROFILE OVERVIEW
         </div>
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
           Background & Academic Focus
@@ -307,7 +392,7 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
       <!-- Left: Story -->
-      <div class="lg:col-span-7 mono-card p-6 sm:p-7 rounded-xl" data-aos="fade-right">
+      <div class="lg:col-span-7 bento-card p-6 sm:p-7 rounded-xl" data-aos="fade-right">
         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
           <i data-lucide="terminal" class="w-4 h-4 text-zinc-400"></i>
           <span>Data Analytics & Intelligent Systems</span>
@@ -342,7 +427,7 @@
       <!-- Right: Structured Pillar Cards -->
       <div class="lg:col-span-5 space-y-3" data-aos="fade-left">
         
-        <div class="mono-card p-4 rounded-xl">
+        <div class="bento-card p-4 rounded-xl">
           <div class="flex items-center justify-between mb-1.5">
             <h4 class="text-sm font-semibold text-white flex items-center gap-2">
               <i data-lucide="pie-chart" class="w-4 h-4 text-zinc-400"></i>
@@ -355,7 +440,7 @@
           </p>
         </div>
 
-        <div class="mono-card p-4 rounded-xl">
+        <div class="bento-card p-4 rounded-xl">
           <div class="flex items-center justify-between mb-1.5">
             <h4 class="text-sm font-semibold text-white flex items-center gap-2">
               <i data-lucide="brain" class="w-4 h-4 text-zinc-400"></i>
@@ -368,7 +453,7 @@
           </p>
         </div>
 
-        <div class="mono-card p-4 rounded-xl">
+        <div class="bento-card p-4 rounded-xl">
           <div class="flex items-center justify-between mb-1.5">
             <h4 class="text-sm font-semibold text-white flex items-center gap-2">
               <i data-lucide="file-spreadsheet" class="w-4 h-4 text-zinc-400"></i>
@@ -386,11 +471,11 @@
   </section>
 
   <!-- ================= SKILLS SECTION ================= -->
-  <section id="skills" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-zinc-900">
+  <section id="skills" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-zinc-900">
     <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-2" data-aos="fade-up">
       <div>
         <div class="text-xs font-mono text-zinc-500 mb-1 tracking-widest">
-          // 02. COMPETENCIES
+          // 03. COMPETENCIES
         </div>
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
           Technical Stack & Skills
@@ -401,7 +486,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       
       <!-- Programming -->
-      <div class="mono-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+      <div class="bento-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="100">
         <div class="flex items-center justify-between mb-4 border-b border-zinc-800 pb-3">
           <h3 class="text-sm font-bold text-white tracking-wide">Programming & Core</h3>
           <i data-lucide="code" class="w-4 h-4 text-zinc-400"></i>
@@ -439,7 +524,7 @@
       </div>
 
       <!-- BI & Analytics -->
-      <div class="mono-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+      <div class="bento-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
         <div class="flex items-center justify-between mb-4 border-b border-zinc-800 pb-3">
           <h3 class="text-sm font-bold text-white tracking-wide">BI & Analytics</h3>
           <i data-lucide="bar-chart-3" class="w-4 h-4 text-zinc-400"></i>
@@ -477,7 +562,7 @@
       </div>
 
       <!-- ML & Concepts -->
-      <div class="mono-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+      <div class="bento-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="300">
         <div class="flex items-center justify-between mb-4 border-b border-zinc-800 pb-3">
           <h3 class="text-sm font-bold text-white tracking-wide">Data Science & ML</h3>
           <i data-lucide="network" class="w-4 h-4 text-zinc-400"></i>
@@ -528,7 +613,7 @@
   </section>
 
   <!-- ================= PROTOSEM SECTION (WEEKS 00 - 19) ================= -->
-  <section id="protosem" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-zinc-900 scroll-mt-16">
+  <section id="protosem" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-zinc-900 scroll-mt-16">
     
     <div class="text-center mb-10" data-aos="fade-up">
       <div class="inline-flex items-center gap-1.5 mono-badge px-3 py-1 rounded-full text-xs font-mono text-zinc-300 mb-3">
@@ -544,7 +629,7 @@
     </div>
 
     <!-- Overview Card -->
-    <div class="mono-card p-6 sm:p-7 rounded-xl mb-8 text-center" data-aos="fade-up">
+    <div class="bento-card p-6 sm:p-7 rounded-xl mb-8 text-center" data-aos="fade-up">
       <p class="max-w-2xl mx-auto text-zinc-300 text-sm leading-relaxed font-light mb-6">
         Selected for a <strong class="text-white font-medium">20-week industry-integrated innovation programme</strong> focused on solving real-world retail and commerce challenges through <span class="text-zinc-100">AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship</span>.
       </p>
@@ -569,7 +654,7 @@
     </div>
 
     <!-- Stepper (Weeks 00 - 19) -->
-    <div class="mono-card p-5 rounded-xl mb-8" data-aos="fade-up">
+    <div class="bento-card p-5 rounded-xl mb-8" data-aos="fade-up">
       <div class="flex items-center justify-between gap-2 mb-4 text-xs font-mono text-zinc-400">
         <span class="flex items-center gap-2 font-medium"><i data-lucide="git-commit" class="w-4 h-4 text-white"></i> 20-WEEK ARCHIVE (W00 – W19)</span>
         <span class="text-zinc-500">[ 04 PHASES ]</span>
@@ -627,11 +712,11 @@
   </section>
 
   <!-- ================= PROJECTS SECTION ================= -->
-  <section id="projects" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-zinc-900">
+  <section id="projects" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-zinc-900">
     <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-2" data-aos="fade-up">
       <div>
         <div class="text-xs font-mono text-zinc-500 mb-1 tracking-widest">
-          // 03. CASE STUDIES
+          // 04. CASE STUDIES
         </div>
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
           Featured Projects & Works
@@ -642,7 +727,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       
       <!-- Project 1 -->
-      <div class="mono-card p-6 rounded-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+      <div class="bento-card p-6 rounded-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
         <div>
           <div class="h-28 rounded-lg bg-black border border-zinc-800 mb-5 flex flex-col items-center justify-center text-zinc-400">
             <i data-lucide="bar-chart-2" class="w-7 h-7 text-white mb-1.5"></i>
@@ -670,7 +755,7 @@
       </div>
 
       <!-- Project 2 -->
-      <div class="mono-card p-6 rounded-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+      <div class="bento-card p-6 rounded-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
         <div>
           <div class="h-28 rounded-lg bg-black border border-zinc-800 mb-5 flex flex-col items-center justify-center text-zinc-400">
             <i data-lucide="git-branch" class="w-7 h-7 text-white mb-1.5"></i>
@@ -698,7 +783,7 @@
       </div>
 
       <!-- Project 3 -->
-      <div class="mono-card p-6 rounded-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+      <div class="bento-card p-6 rounded-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
         <div>
           <div class="h-28 rounded-lg bg-black border border-zinc-800 mb-5 flex flex-col items-center justify-center text-zinc-400">
             <i data-lucide="file-spreadsheet" class="w-7 h-7 text-white mb-1.5"></i>
@@ -733,7 +818,7 @@
     <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-2" data-aos="fade-up">
       <div>
         <div class="text-xs font-mono text-zinc-500 mb-1 tracking-widest">
-          // 04. CHRONOLOGY
+          // 05. CHRONOLOGY
         </div>
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
           Learning Journey & Education
@@ -745,7 +830,7 @@
       
       <div class="relative pl-7" data-aos="fade-left">
         <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-white"></div>
-        <div class="mono-card p-5 rounded-xl">
+        <div class="bento-card p-5 rounded-xl">
           <span class="text-[11px] font-mono text-zinc-500 mb-1 block uppercase tracking-wider">20-WEEK PROGRAM (W00–W19)</span>
           <h3 class="text-base font-bold text-white mb-1">PRICE ProtoSem &mdash; Innovation Trainee</h3>
           <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed font-light">
@@ -756,7 +841,7 @@
 
       <div class="relative pl-7" data-aos="fade-left" data-aos-delay="100">
         <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-600"></div>
-        <div class="mono-card p-5 rounded-xl">
+        <div class="bento-card p-5 rounded-xl">
           <span class="text-[11px] font-mono text-zinc-500 mb-1 block uppercase tracking-wider">2024 – PRESENT</span>
           <h3 class="text-base font-bold text-white mb-1">B.Sc Data Science (2nd Year)</h3>
           <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed font-light">
@@ -770,10 +855,10 @@
 
   <!-- ================= CONTACT ================= -->
   <section id="contact" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-zinc-900">
-    <div class="mono-card p-8 sm:p-12 rounded-2xl text-center" data-aos="zoom-in">
+    <div class="bento-card p-8 sm:p-12 rounded-2xl text-center" data-aos="zoom-in">
       <div class="inline-flex items-center gap-1.5 mono-badge px-3 py-1 rounded-full text-xs font-mono text-zinc-400 mb-4">
         <i data-lucide="mail" class="w-3.5 h-3.5"></i>
-        <span>05. GET IN TOUCH</span>
+        <span>06. GET IN TOUCH</span>
       </div>
       <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">Let's Connect & Collaborate</h2>
       <p class="text-zinc-400 max-w-md mx-auto text-xs sm:text-sm leading-relaxed mb-6 font-light">
@@ -801,7 +886,7 @@
   <footer class="relative z-10 border-t border-zinc-900 py-8 px-4 text-center">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
       <div>
-        &copy; 2026 NANDHINI J &bull; DARK MINIMALIST MONOCHROME
+        &copy; 2026 NANDHINI J &bull; BENTO GRID DARK MONOCHROME
       </div>
       <div class="flex items-center gap-4">
         <a href="https://github.com/Nandhini-187" target="_blank" class="hover:text-white transition-colors"><i data-lucide="github" class="w-4 h-4"></i></a>
@@ -814,7 +899,7 @@
   <!-- ================= MODAL DIALOG ================= -->
   <div id="shadcn-dialog" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
     <div onclick="closeDialog()" class="dialog-overlay fixed inset-0"></div>
-    <div class="relative z-10 w-full max-w-sm mono-card p-6 rounded-xl border border-zinc-700 shadow-2xl animate-in fade-in zoom-in duration-200">
+    <div class="relative z-10 w-full max-w-sm bento-card p-6 rounded-xl border border-zinc-700 shadow-2xl animate-in fade-in zoom-in duration-200">
       
       <div class="flex items-center justify-between mb-4 border-b border-zinc-800 pb-3">
         <div class="flex items-center gap-2.5">
@@ -857,7 +942,7 @@
   </div>
 
   <!-- ================= TOAST ================= -->
-  <div id="shadcn-toast" class="fixed bottom-5 right-5 z-50 flex items-center gap-3 mono-card border-zinc-700 p-4 rounded-xl shadow-2xl max-w-sm">
+  <div id="shadcn-toast" class="fixed bottom-5 right-5 z-50 flex items-center gap-3 bento-card border-zinc-700 p-4 rounded-xl shadow-2xl max-w-sm">
     <div class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-black font-mono font-bold text-xs shrink-0">
       i
     </div>
