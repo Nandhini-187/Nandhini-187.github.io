@@ -899,45 +899,64 @@
   <!-- ================= MODAL DIALOG ================= -->
   <div id="shadcn-dialog" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
     <div onclick="closeDialog()" class="dialog-overlay fixed inset-0"></div>
-    <div class="relative z-10 w-full max-w-sm bento-card p-6 rounded-xl border border-zinc-700 shadow-2xl animate-in fade-in zoom-in duration-200">
+    <div class="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bento-card p-6 sm:p-7 rounded-2xl border border-zinc-700 shadow-2xl animate-in fade-in zoom-in duration-200">
       
-      <div class="flex items-center justify-between mb-4 border-b border-zinc-800 pb-3">
-        <div class="flex items-center gap-2.5">
-          <div class="w-7 h-7 rounded-lg bg-zinc-800 border border-zinc-600 flex items-center justify-center text-white font-mono text-xs font-bold" id="dialog-phase-badge">
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between mb-4 border-b border-zinc-800 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-zinc-800 border border-zinc-600 flex items-center justify-center text-white font-mono text-sm font-bold" id="dialog-phase-badge">
             P1
           </div>
           <div>
-            <h3 class="text-base font-bold text-white" id="dialog-week-title">WEEK 00</h3>
-            <p class="text-[10px] font-mono text-zinc-400 uppercase" id="dialog-phase-title">Phase 01</p>
+            <div class="flex items-center gap-2">
+              <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight" id="dialog-week-title">WEEK 00</h3>
+              <span id="dialog-published-tag" class="hidden text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 border border-emerald-500 text-emerald-300 font-bold">PUBLISHED ✨</span>
+            </div>
+            <p class="text-xs font-mono text-zinc-400 mt-0.5" id="dialog-phase-title">Phase 01: Ideation & Foundation</p>
           </div>
         </div>
-        <button onclick="closeDialog()" class="text-zinc-500 hover:text-white transition-colors">
-          <i data-lucide="x" class="w-4 h-4"></i>
+        <button onclick="closeDialog()" class="text-zinc-500 hover:text-white p-1 rounded-lg hover:bg-zinc-800 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <div class="bg-black rounded-lg p-3.5 mb-4 border border-zinc-800 space-y-2 text-xs font-mono">
-        <div class="flex justify-between items-center text-zinc-400">
-          <span>// STATUS:</span>
-          <span class="text-white font-medium">Field Notes In Progress</span>
+      <!-- Modal Meta Strip -->
+      <div class="bg-black rounded-xl p-3.5 mb-5 border border-zinc-800 grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-mono">
+        <div>
+          <span class="text-zinc-500 block text-[10px]">PROGRAMME</span>
+          <span class="text-zinc-200 font-medium">PRICE ProtoSem (20-Wks)</span>
         </div>
-        <div class="flex justify-between items-center text-zinc-400">
-          <span>// PROGRAMME:</span>
-          <span class="text-zinc-300">PRICE ProtoSem (20-Wks)</span>
+        <div>
+          <span class="text-zinc-500 block text-[10px]">STATUS</span>
+          <span id="dialog-status-text" class="text-white font-medium">Field Notes In Progress</span>
         </div>
-        <div class="flex justify-between items-center text-zinc-400">
-          <span>// ROUTE:</span>
-          <span class="text-zinc-300 font-bold" id="dialog-slug">/protosem/week-00</span>
+        <div class="col-span-2 sm:col-span-1">
+          <span class="text-zinc-500 block text-[10px]">ROUTE</span>
+          <span id="dialog-slug" class="text-zinc-300 font-medium">/protosem/week-00</span>
         </div>
       </div>
 
-      <p class="text-xs text-zinc-400 font-light leading-relaxed mb-5">
-        Detailed technical reflections, sprint logs, and architectural notes for this week are currently being compiled.
-      </p>
+      <!-- Image Gallery Container (Rendered dynamically if images exist) -->
+      <div id="dialog-image-container" class="hidden mb-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <!-- Rendered dynamically -->
+      </div>
 
-      <button onclick="closeDialog()" class="w-full mono-btn-primary py-2 rounded-lg text-xs font-mono font-semibold">
-        Close Window
-      </button>
+      <!-- Main Content Narrative -->
+      <div id="dialog-content-body" class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed space-y-3 mb-6">
+        <p>Detailed technical reflections, sprint logs, and architectural notes for this week are currently being compiled.</p>
+      </div>
+
+      <!-- Tags Container -->
+      <div id="dialog-tags-container" class="hidden flex-wrap gap-1.5 mb-6 pt-4 border-t border-zinc-800">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Footer Button -->
+      <div class="flex justify-end gap-3 pt-2">
+        <button onclick="closeDialog()" class="mono-btn-primary px-5 py-2 rounded-lg text-xs font-mono font-semibold">
+          Close Window
+        </button>
+      </div>
     </div>
   </div>
 
@@ -974,8 +993,31 @@
     // ==========================================
     // PROTOSEM ARCHIVE (WEEKS 00 - 19)
     // ==========================================
-    const protoSemWeeks = [];
-    for(let w = 0; w <= 19; w++) {
+    const protoSemWeeks = [
+      {
+        week: "00",
+        phase: 1,
+        slug: "week-00",
+        title: "Week 0 – PRICE Protosem 🚀",
+        subtitle: "Phase 01: Ideation & Foundation // Inauguration & Team Dynamics",
+        status: "Field Notes Published",
+        isPublished: true,
+        summary: "Inauguration ceremony, team introductions, personality tests, storytelling, and the Marshmallow & Spaghetti challenge.",
+        paragraphs: [
+          "Week 0 of PRICE Protosem was all about getting started, connecting with our peers, and building a strong foundation for the journey ahead. We participated in the inauguration ceremony, team introductions, personality tests, storytelling, and the Marshmallow & Spaghetti challenge.",
+          "These activities helped us understand our teammates’ strengths, personalities, creativity, communication, and teamwork, while bringing together students from diverse academic backgrounds.",
+          "A great beginning to an exciting 20-week journey of learning, collaboration, and solving real-world retail challenges! ✨"
+        ],
+        images: [
+          { src: "week0_img1.jpg", caption: "Presenting during Week 0 Introduction & Icebreaker Session" },
+          { src: "week0_img2.jpg", caption: "Team collaboration, idea pitching & storytelling activities" }
+        ],
+        tags: ["Inauguration Ceremony", "Personality Tests", "Storytelling", "Marshmallow & Spaghetti Challenge", "Team Dynamics", "Retail Innovation"]
+      }
+    ];
+
+    // Populate remaining weeks 01 - 19
+    for(let w = 1; w <= 19; w++) {
       let phase = 1;
       if(w >= 5 && w <= 9) phase = 2;
       else if (w >= 10 && w <= 14) phase = 3;
@@ -986,7 +1028,16 @@
         week: paddedWeek,
         phase: phase,
         slug: `week-${paddedWeek}`,
-        status: "Field Notes in Progress"
+        title: `Week ${paddedWeek} – Sprint Log`,
+        subtitle: `Phase 0${phase} Archive`,
+        status: "Field Notes in Progress",
+        isPublished: false,
+        summary: "Detailed technical reflections, sprint logs, and architectural notes for this week are currently being compiled.",
+        paragraphs: [
+          "Detailed technical reflections, sprint logs, and architectural notes for this week are currently being compiled."
+        ],
+        images: [],
+        tags: ["In Progress", "ProtoSem"]
       });
     }
 
@@ -998,24 +1049,36 @@
         ? protoSemWeeks 
         : protoSemWeeks.filter(w => w.phase === parseInt(filter));
 
-      container.innerHTML = filtered.map(item => `
-        <div 
-          onclick="openWeekDialog('${item.week}', '${item.phase}', '${item.slug}')"
-          class="week-card p-3.5 rounded-xl cursor-pointer flex flex-col justify-between group focus:outline-none"
-        >
-          <div class="flex justify-between items-center mb-2.5 text-[10px] font-mono">
-            <span class="text-zinc-500 group-hover:text-zinc-300 transition-colors">P0${item.phase}</span>
-            <span class="text-zinc-600 group-hover:text-white transition-colors">[OPEN]</span>
+      container.innerHTML = filtered.map(item => {
+        const isPub = item.isPublished;
+        const borderClass = isPub ? 'border-zinc-500 bg-zinc-900/90 shadow-md shadow-white/5' : 'border-zinc-800 bg-[#09090b]';
+        const badgeMarkup = isPub 
+          ? `<span class="text-[9px] font-mono text-emerald-400 font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>PUBLISHED</span>`
+          : `<span class="text-zinc-600 group-hover:text-white transition-colors">[OPEN]</span>`;
+        const bottomStatus = isPub
+          ? `<span class="text-white font-semibold">VIEW NOTES ✨</span>`
+          : `<span class="text-zinc-500 group-hover:text-zinc-300">SOON</span>`;
+
+        return `
+          <div 
+            onclick="openWeekDialog('${item.week}')"
+            class="week-card p-3.5 rounded-xl cursor-pointer flex flex-col justify-between group focus:outline-none ${borderClass}"
+          >
+            <div class="flex justify-between items-center mb-2.5 text-[10px] font-mono">
+              <span class="${isPub ? 'text-white font-bold' : 'text-zinc-500'} group-hover:text-zinc-300 transition-colors">P0${item.phase}</span>
+              ${badgeMarkup}
+            </div>
+            <div class="text-base font-bold text-white font-mono mb-1 flex items-baseline justify-between">
+              <div><span class="text-xs text-zinc-500 mr-1">WK</span>${item.week}</div>
+              ${isPub ? `<span class="text-[10px] font-sans font-normal text-zinc-400 truncate max-w-[60%]">Inauguration</span>` : ''}
+            </div>
+            <div class="text-[9px] font-mono text-zinc-500 pt-2 border-t border-zinc-800/80 flex justify-between uppercase">
+              <span>${isPub ? 'FIELD NOTES' : 'NOTES'}</span>
+              ${bottomStatus}
+            </div>
           </div>
-          <div class="text-base font-bold text-white font-mono mb-2">
-            <span class="text-xs text-zinc-500 mr-1">WK</span>${item.week}
-          </div>
-          <div class="text-[9px] font-mono text-zinc-500 pt-2 border-t border-zinc-800/80 flex justify-between uppercase">
-            <span>NOTES</span>
-            <span class="text-zinc-400 group-hover:text-white">SOON</span>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
       lucide.createIcons();
     }
 
@@ -1033,17 +1096,64 @@
     }
 
     // Modal Handlers
-    function openWeekDialog(weekNum, phaseNum, slug) {
-      document.getElementById('dialog-week-title').textContent = `WEEK ${weekNum}`;
-      document.getElementById('dialog-phase-badge').textContent = `P${phaseNum}`;
-      document.getElementById('dialog-phase-title').textContent = `Phase 0${phaseNum} Archive`;
-      document.getElementById('dialog-slug').textContent = `/protosem/${slug}`;
+    function openWeekDialog(weekNum) {
+      const data = protoSemWeeks.find(w => w.week === String(weekNum)) || protoSemWeeks[0];
       
+      document.getElementById('dialog-week-title').textContent = data.title;
+      document.getElementById('dialog-phase-badge').textContent = `P${data.phase}`;
+      document.getElementById('dialog-phase-title').textContent = data.subtitle;
+      document.getElementById('dialog-slug').textContent = `/protosem/${data.slug}`;
+      document.getElementById('dialog-status-text').textContent = data.status;
+
+      const pubTag = document.getElementById('dialog-published-tag');
+      if (data.isPublished) {
+        pubTag.classList.remove('hidden');
+      } else {
+        pubTag.classList.add('hidden');
+      }
+
+      // Render Paragraphs
+      const contentBody = document.getElementById('dialog-content-body');
+      contentBody.innerHTML = data.paragraphs.map(p => `<p>${p}</p>`).join('');
+
+      // Render Images
+      const imgContainer = document.getElementById('dialog-image-container');
+      if (data.images && data.images.length > 0) {
+        imgContainer.innerHTML = data.images.map(img => `
+          <div class="rounded-xl overflow-hidden bg-black border border-zinc-800 group">
+            <div class="h-44 sm:h-52 overflow-hidden">
+              <img src="${img.src}" alt="${img.caption}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="p-2.5 bg-zinc-900/90 border-t border-zinc-800 text-[10px] font-mono text-zinc-400 flex items-center gap-1.5">
+              <i data-lucide="camera" class="w-3 h-3 text-zinc-400 shrink-0"></i>
+              <span class="truncate">${img.caption}</span>
+            </div>
+          </div>
+        `).join('');
+        imgContainer.classList.remove('hidden');
+      } else {
+        imgContainer.innerHTML = '';
+        imgContainer.classList.add('hidden');
+      }
+
+      // Render Tags
+      const tagsContainer = document.getElementById('dialog-tags-container');
+      if (data.tags && data.tags.length > 0) {
+        tagsContainer.innerHTML = data.tags.map(tag => `
+          <span class="mono-badge px-2.5 py-1 rounded text-[10px] font-mono text-zinc-300"># ${tag}</span>
+        `).join('');
+        tagsContainer.classList.remove('hidden');
+        tagsContainer.classList.add('flex');
+      } else {
+        tagsContainer.classList.add('hidden');
+      }
+
       const dialog = document.getElementById('shadcn-dialog');
       dialog.classList.remove('hidden');
       dialog.classList.add('flex');
+      lucide.createIcons();
       
-      showToast(`WEEK ${weekNum} INSPECTED`, `Sprint notes archive loaded.`);
+      showToast(`WEEK ${weekNum} OPENED`, `${data.status}`);
     }
 
     function closeDialog() {
